@@ -1,0 +1,29 @@
+extends BaseAction
+class_name WanderAction
+
+
+func execute(peebo: Peebo) -> bool:
+	var dirs = Globals.DIRS.duplicate()
+	dirs.shuffle()
+
+	for dir in dirs:
+		var next = peebo.tile_pos + dir
+
+		if (
+		next.x < -Globals.world_width * 0.5
+		or next.x >= Globals.world_width * 0.5
+		or next.y < -Globals.world_height * 0.5
+		or next.y >= Globals.world_height * 0.5
+		):
+			continue
+
+		if Globals.is_occupied(next):
+			continue
+
+		if Globals.get_ground(next) == "water":
+			continue
+
+		peebo.move_to(next)
+		return true
+
+	return false

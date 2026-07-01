@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://btarjbioihsjj"]
+
+[ext_resource type="Script" uid="uid://bp1jrl52t6s2q" path="res://scripts/peebo/peebo.gd" id="1_x8uct"]
+[ext_resource type="Texture2D" uid="uid://bsyqxtoojv0ib" path="res://sprites/peebo/peebo.png" id="2_g2hs4"]
+[ext_resource type="Script" uid="uid://dkh5dsdy6evtu" path="res://scripts/peebo/peebo_brain.gd" id="3_4i7lc"]
+[ext_resource type="Script" uid="uid://d3goa3ob6r3cf" path="res://scripts/peebo/peebo_actions.gd" id="4_4i7lc"]
+[ext_resource type="Script" uid="uid://b0h1u36yi0hwj" path="res://scripts/actions/drink_action.gd" id="5_llx2r"]
+[ext_resource type="Script" uid="uid://ddo6lgmyapbry" path="res://scripts/actions/eat_action.gd" id="6_vte7y"]
+[ext_resource type="Script" uid="uid://cu5parjmby832" path="res://scripts/actions/wander_action.gd" id="7_xr2y1"]
+[ext_resource type="Script" uid="uid://bhvuqyfbvo6o3" path="res://scripts/actions/reproduce_action.gd" id="8_vte7y"]
+
+[node name="Peebo" type="Node2D" unique_id=1909284323]
+script = ExtResource("1_x8uct")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=302531191]
+texture = ExtResource("2_g2hs4")
+
+[node name="PeeboBrain" type="Node" parent="." unique_id=1649511547 node_paths=PackedStringArray("peebo")]
+script = ExtResource("3_4i7lc")
+peebo = NodePath("..")
+metadata/_custom_type_script = "uid://dkh5dsdy6evtu"
+
+[node name="PeeboActions" type="Node" parent="." unique_id=1034052593]
+script = ExtResource("4_4i7lc")
+metadata/_custom_type_script = "uid://d3goa3ob6r3cf"
+
+[node name="DrinkAction" type="Node" parent="PeeboActions" unique_id=589834168]
+script = ExtResource("5_llx2r")
+metadata/_custom_type_script = "uid://b0h1u36yi0hwj"
+
+[node name="EatAction" type="Node" parent="PeeboActions" unique_id=217681033]
+script = ExtResource("6_vte7y")
+metadata/_custom_type_script = "uid://ddo6lgmyapbry"
+
+[node name="WanderAction" type="Node" parent="PeeboActions" unique_id=449526862]
+script = ExtResource("7_xr2y1")
+metadata/_custom_type_script = "uid://cu5parjmby832"
+
+[node name="ReproduceAction" type="Node" parent="PeeboActions" unique_id=1083489350]
+script = ExtResource("8_vte7y")
+metadata/_custom_type_script = "uid://bhvuqyfbvo6o3"
