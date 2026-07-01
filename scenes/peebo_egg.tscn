@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://02wqt3m18nua"]
+
+[ext_resource type="Script" uid="uid://m7c76l2vh1qj" path="res://scripts/peebo_egg.gd" id="1_jgnvw"]
+[ext_resource type="Texture2D" uid="uid://bdd0yha2s6nd4" path="res://sprites/Egg_item.png" id="2_3ns84"]
+
+[sub_resource type="Animation" id="Animation_2qbtx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jpfw1"]
+resource_name = "egg_shake_max"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.3490658503988659, 0.3490658503988659, -0.3490658503988659, 0.3490658503988659, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4ngfv"]
+resource_name = "egg_shake_min"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.17453292519943295, 0.17453292519943295, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oeje8"]
+_data = {
+&"RESET": SubResource("Animation_2qbtx"),
+&"egg_shake_max": SubResource("Animation_jpfw1"),
+&"egg_shake_min": SubResource("Animation_4ngfv")
+}
+
+[node name="PeeboEgg" type="Node2D" unique_id=1948286489]
+script = ExtResource("1_jgnvw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1721095879]
+y_sort_enabled = true
+texture = ExtResource("2_3ns84")
+offset = Vector2(0, -6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1287531588]
+libraries/ = SubResource("AnimationLibrary_oeje8")

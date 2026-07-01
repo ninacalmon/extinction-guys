@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cid6tt230d2uk"]
 
-[ext_resource type="Script" uid="uid://chinnpogh0whm" path="res://scenes/fruit_bush.gd" id="1_8imxc"]
+[ext_resource type="Script" uid="uid://chinnpogh0whm" path="res://scripts/fruit_bush.gd" id="1_8imxc"]
 [ext_resource type="Texture2D" uid="uid://c31ewpbdthwfk" path="res://sprites/bushes.png" id="1_rueg2"]
 
 [node name="FruitBush" type="Node2D" unique_id=427270746]

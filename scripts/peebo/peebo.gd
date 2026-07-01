@@ -11,20 +11,25 @@ const MAX_AGE: int = 100
 const MAX_HUNGER: int = 40
 const MAX_THIRST: int = 25
 
+enum SexType {F, M}
+var sex: SexType
+
+var had_child: bool = false
+
 @onready var brain: PeeboBrain = $PeeboBrain
 @onready var actions: PeeboActions = $PeeboActions
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
-
 func _ready() -> void:
-	sprite.flip_h = randi_range(0, 1)
-	sprite.play("idle")
+	sex = [SexType.F, SexType.M].pick_random()
+	set_up_sprite()
 
 	TimeManager.turn_passed.connect(_on_turn)
 
 
 func _on_turn():
+	sprite.self_modulate = Color.WHITE
 	update_stats()
 
 	if is_overpopulated():
@@ -58,19 +63,19 @@ func die():
 	TimeManager.turn_passed.disconnect(_on_turn)
 	Globals.remove_entity(tile_pos)
 	var tween = create_tween()
-	tween.tween_property(sprite, "modulate", Color.BLACK, 0.5)
+	tween.tween_property(sprite, "self_modulate", Color.BLACK, 0.5)
 	await tween.finished
 	queue_free()
 
 func eat():
 	var tween = create_tween()
-	tween.tween_property(sprite, "modulate", Color.RED, 0.5)
+	tween.tween_property(sprite, "self_modulate", Color.RED, 0.5)
 	hunger = 0
 
 
 func drink():
 	var tween = create_tween()
-	tween.tween_property(sprite, "modulate", Color.BLUE, 0.5)
+	tween.tween_property(sprite, "self_modulate", Color.BLUE, 0.5)
 	thirst = 0
 
 
@@ -93,7 +98,7 @@ func move_to(next: Vector2i):
 
 
 func can_reproduce() -> bool:
-	return age >= MAX_AGE / 5.0
+	return age >= MAX_AGE / 5.0 and !had_child
 
 func can_reproduce_with(other: Peebo) -> bool:
 	if !can_reproduce():
@@ -102,6 +107,17 @@ func can_reproduce_with(other: Peebo) -> bool:
 	if !other.can_reproduce():
 		return false
 
+	if sex == other.sex:
+		return false
+	
 	# more rules...
 
 	return true
+
+func set_up_sprite():
+	sprite.flip_h = randi_range(0, 1)
+	sprite.play("idle")
+
+	match sex:
+		SexType.F: sprite.modulate = Color(1.0, 0.6, 0.8)
+		SexType.M: sprite.modulate = Color(0.6, 0.7, 1.0)

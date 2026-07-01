@@ -3,6 +3,7 @@ class_name PeeboInstanciator
 
 @export var peebo_start_amount: int = 20
 @export var peebo_scene: PackedScene
+@export var egg_scene: PackedScene
 
 func _ready() -> void:
 	Globals.peebo_instanciator = self
@@ -53,3 +54,14 @@ func create_new_peebo(pos: Vector2i):
 	Globals.add_entity(pos, new_peebo)
 
 	add_child(new_peebo)
+
+func create_new_egg(pos: Vector2i):
+	print("niu eguiQ")
+	var new_egg: PeeboEgg = egg_scene.instantiate()
+
+	new_egg.tile_pos = pos
+	new_egg.global_position = Globals.map.tile_to_world(pos)
+
+	Globals.add_entity(pos, new_egg)
+
+	add_child(new_egg)
