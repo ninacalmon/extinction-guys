@@ -1,4 +1,4 @@
-extends Node2D
+extends Node3D
 class_name Peebo
 
 var tile_pos: Vector2i
@@ -13,16 +13,18 @@ const MAX_THIRST: int = 25
 
 @onready var brain: PeeboBrain = $PeeboBrain
 @onready var actions: PeeboActions = $PeeboActions
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: Sprite3D = $Sprite2D
 
 
 func _ready() -> void:
+	global_position.y = 0.5
 	sprite.flip_h = randi_range(0, 1)
 
 	TimeManager.turn_passed.connect(_on_turn)
 
 
 func _on_turn():
+	print("ran")
 	update_stats()
 
 	if is_overpopulated():
@@ -35,7 +37,9 @@ func _on_turn():
 
 	for action in brain.think():
 		if actions.execute(action, self):
+			print("executed")
 			return
+
 
 
 func update_stats():
@@ -85,6 +89,9 @@ func move_to(next: Vector2i):
 
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", target, 0.5)
+
+	print("MOVE:", old_pos, "→", next)
+	print("WORLD:", Globals.map.tile_to_world(next))
 
 
 func can_reproduce() -> bool:

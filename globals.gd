@@ -22,7 +22,7 @@ const DIRS := [
 func is_occupied(pos: Vector2i) -> bool:
 	return entities.has(pos)
 
-func add_entity(pos: Vector2i, entity: Node2D):
+func add_entity(pos: Vector2i, entity: Node):
 	entities[pos] = entity
 
 func remove_entity(pos: Vector2i):

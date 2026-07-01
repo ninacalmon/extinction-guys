@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bywhc0k8y4sc0"]
+
+[ext_resource type="Script" uid="uid://kyslgdeclq0i" path="res://scripts/map/map_gen.gd" id="1_6scpr"]
+[ext_resource type="Texture2D" uid="uid://bvwjpifdk74fv" path="res://sprites/new_noise_texture_2d.tres" id="2_udtcx"]
+[ext_resource type="Texture2D" uid="uid://cm2eghanb0sc5" path="res://sprites/world_tileset.png" id="3_tx6pf"]
+[ext_resource type="Script" uid="uid://b2rgsfgaonm0h" path="res://scripts/map/peebo_instanciator.gd" id="4_yvtaa"]
+[ext_resource type="PackedScene" uid="uid://btarjbioihsjj" path="res://scenes/peebo.tscn" id="5_e1jdd"]
+[ext_resource type="Script" uid="uid://oo35erjm8oom" path="res://scenes/camera_3d.gd" id="6_udtcx"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_70c8r"]
+frequency = 0.09
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r7x2l"]
+noise = SubResource("FastNoiseLite_70c8r")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3f7e"]
+texture = ExtResource("3_tx6pf")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cdpwx"]
+sources/0 = SubResource("TileSetAtlasSource_w3f7e")
+
+[node name="MapTests" type="Node3D" unique_id=214803801]
+
+[node name="MapGen" type="Node2D" parent="." unique_id=5671555]
+script = ExtResource("1_6scpr")
+main_noise_texture = ExtResource("2_udtcx")
+bush_noise_texture = SubResource("NoiseTexture2D_r7x2l")
+
+[node name="TileMapLayerGround" type="TileMapLayer" parent="MapGen" unique_id=1731626030]
+tile_set = SubResource("TileSet_cdpwx")
+
+[node name="TileMapLayerAbove" type="TileMapLayer" parent="MapGen" unique_id=936536952]
+tile_set = SubResource("TileSet_cdpwx")
+
+[node name="PeeboInstanciator" type="Node2D" parent="." unique_id=28809032]
+script = ExtResource("4_yvtaa")
+peebo_start_amount = 40
+peebo_scene = ExtResource("5_e1jdd")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=819698293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+projection = 1
+size = 20.0
+script = ExtResource("6_udtcx")

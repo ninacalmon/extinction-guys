@@ -9,10 +9,11 @@
 [ext_resource type="Script" uid="uid://cu5parjmby832" path="res://scripts/actions/wander_action.gd" id="7_xr2y1"]
 [ext_resource type="Script" uid="uid://bhvuqyfbvo6o3" path="res://scripts/actions/reproduce_action.gd" id="8_vte7y"]
 
-[node name="Peebo" type="Node2D" unique_id=1909284323]
+[node name="Peebo" type="Node3D" unique_id=1791378614]
 script = ExtResource("1_x8uct")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=302531191]
+[node name="Sprite2D" type="Sprite3D" parent="." unique_id=1355511366]
+axis = 1
 texture = ExtResource("2_g2hs4")
 
 [node name="PeeboBrain" type="Node" parent="." unique_id=1649511547 node_paths=PackedStringArray("peebo")]

@@ -19,8 +19,7 @@ func spawn_peebo():
 			randi_range(-Globals.world_height * 0.5, Globals.world_height * 0.5 - 1)
 		)
 
-
-		if Globals.get_tile(pos).is_empty():
+		if Globals.get_ground(pos) == "":
 			continue
 
 		if Globals.get_ground(pos) == "water":
@@ -29,21 +28,30 @@ func spawn_peebo():
 		if Globals.is_occupied(pos):
 			continue
 
-		new_peebo.global_position = Globals.map.tile_to_world(pos)
 		new_peebo.tile_pos = pos
 
 		Globals.add_entity(pos, new_peebo)
 
-		break
+		add_child(new_peebo)
 
-	add_child(new_peebo)
+		new_peebo.global_position = Globals.map.tile_to_world(pos)
+
+		print("Spawned peebo at: ", pos)
+		break
 
 func create_new_peebo(pos: Vector2i):
 	var new_peebo: Peebo = peebo_scene.instantiate()
 
+	if Globals.get_ground(pos) == "water":
+		return
+
+	if Globals.is_occupied(pos):
+		return
+
 	new_peebo.tile_pos = pos
-	new_peebo.global_position = Globals.map.tile_to_world(pos)
+
+	add_child(new_peebo)
 
 	Globals.add_entity(pos, new_peebo)
 
-	add_child(new_peebo)
+	new_peebo.global_position = Globals.map.tile_to_world(pos)

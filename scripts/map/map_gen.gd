@@ -68,8 +68,12 @@ func generate_world() -> void:
 					grass_atlas.pick_random()
 				)
 
-func tile_to_world(tile: Vector2i) -> Vector2:
-	return tile_map_layer_ground.map_to_local(tile)
+func tile_to_world(tile: Vector2i) -> Vector3:
+	return Vector3(
+		tile.x,
+		0,
+		tile.y
+	)
 
 func world_to_tile(pos: Vector2) -> Vector2i:
 	return tile_map_layer_ground.local_to_map(pos)
