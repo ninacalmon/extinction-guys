@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cid6tt230d2uk"]
+
+[ext_resource type="Script" uid="uid://chinnpogh0whm" path="res://scenes/fruit_bush.gd" id="1_8imxc"]
+[ext_resource type="Texture2D" uid="uid://c31ewpbdthwfk" path="res://sprites/bushes.png" id="1_rueg2"]
+
+[node name="FruitBush" type="Node2D" unique_id=427270746]
+script = ExtResource("1_8imxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=299487045]
+y_sort_enabled = true
+texture = ExtResource("1_rueg2")
+offset = Vector2(0, -7)
+hframes = 4
+frame = 3

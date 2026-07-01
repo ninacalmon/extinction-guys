@@ -28,10 +28,9 @@ func add_entity(pos: Vector2i, entity: Node2D):
 func remove_entity(pos: Vector2i):
 	entities.erase(pos)
 
-func set_tile(pos: Vector2i, ground: String, object: String = ""):
+func set_tile(pos: Vector2i, ground: String):
 	world[pos] = {
 		"ground": ground,
-		"object": object
 	}
 
 func get_tile(pos: Vector2i) -> Dictionary:

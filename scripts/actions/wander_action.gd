@@ -9,18 +9,10 @@ func execute(peebo: Peebo) -> bool:
 	for dir in dirs:
 		var next = peebo.tile_pos + dir
 
-		if (
-		next.x < -Globals.world_width * 0.5
-		or next.x >= Globals.world_width * 0.5
-		or next.y < -Globals.world_height * 0.5
-		or next.y >= Globals.world_height * 0.5
-		):
-			continue
-
 		if Globals.is_occupied(next):
 			continue
 
-		if Globals.get_ground(next) == "water":
+		if Globals.get_ground(next) == "" or Globals.get_ground(next) == "water":
 			continue
 
 		peebo.move_to(next)

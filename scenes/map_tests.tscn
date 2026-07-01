@@ -1,33 +1,53 @@
 [gd_scene format=3 uid="uid://brai7b5a4tcy8"]
 
 [ext_resource type="Script" uid="uid://kyslgdeclq0i" path="res://scripts/map/map_gen.gd" id="1_swgd7"]
-[ext_resource type="Texture2D" uid="uid://cm2eghanb0sc5" path="res://sprites/world_tileset.png" id="2_al2up"]
 [ext_resource type="Texture2D" uid="uid://bvwjpifdk74fv" path="res://sprites/new_noise_texture_2d.tres" id="2_vanih"]
+[ext_resource type="Texture2D" uid="uid://caweqsw1nqkq5" path="res://sprites/new_world_tileset.png" id="3_d6e46"]
+[ext_resource type="PackedScene" uid="uid://cid6tt230d2uk" path="res://scenes/fruit_bush.tscn" id="3_yn7vm"]
 [ext_resource type="Script" uid="uid://b2rgsfgaonm0h" path="res://scripts/map/peebo_instanciator.gd" id="4_d6e46"]
 [ext_resource type="PackedScene" uid="uid://btarjbioihsjj" path="res://scenes/peebo.tscn" id="4_vanih"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_70c8r"]
-frequency = 0.09
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yn7vm"]
+noise_type = 3
+frequency = 0.35
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r7x2l"]
-noise = SubResource("FastNoiseLite_70c8r")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wikph"]
+noise = SubResource("FastNoiseLite_yn7vm")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3f7e"]
-texture = ExtResource("2_al2up")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yn7vm"]
+texture = ExtResource("3_d6e46")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
 0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_cdpwx"]
-sources/0 = SubResource("TileSetAtlasSource_w3f7e")
+sources/0 = SubResource("TileSetAtlasSource_yn7vm")
 
 [node name="MapTests" type="Node2D" unique_id=1262778181]
 
 [node name="MapGen" type="Node2D" parent="." unique_id=5671555]
 script = ExtResource("1_swgd7")
 main_noise_texture = ExtResource("2_vanih")
-bush_noise_texture = SubResource("NoiseTexture2D_r7x2l")
+bush_noise_texture = SubResource("NoiseTexture2D_wikph")
+bush_scene = ExtResource("3_yn7vm")
 
 [node name="TileMapLayerGround" type="TileMapLayer" parent="MapGen" unique_id=1731626030]
 tile_set = SubResource("TileSet_cdpwx")

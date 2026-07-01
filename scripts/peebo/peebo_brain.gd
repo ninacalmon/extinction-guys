@@ -16,6 +16,7 @@ func think() -> Array[Actions.ActionType]:
 	if peebo.can_reproduce():
 		priorities.append(Actions.ActionType.REPRODUCE)
 
-	priorities.append(Actions.ActionType.WANDER)
+	if randi_range(1, 2) == 1:
+		priorities.append(Actions.ActionType.WANDER)
 
 	return priorities

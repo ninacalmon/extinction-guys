@@ -13,7 +13,13 @@ func _ready() -> void:
 func spawn_peebo():
 	var new_peebo: Peebo = peebo_scene.instantiate()
 
-	while true:
+	var tries := 0
+	var max_tries := 100
+
+	while tries < max_tries:
+		tries += 1
+
+		#var pos := Vector2i(-Globals.world_width * 0.5, -Globals.world_height * 0.5)
 		var pos := Vector2i(
 			randi_range(-Globals.world_width * 0.5, Globals.world_width * 0.5 - 1),
 			randi_range(-Globals.world_height * 0.5, Globals.world_height * 0.5 - 1)

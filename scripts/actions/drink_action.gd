@@ -13,7 +13,7 @@ func execute(peebo: Peebo) -> bool:
 	if water_tiles.is_empty():
 		return false
 
-	var target = water_tiles.pick_random()
-	peebo.move_to(target)
+	#var target = water_tiles.pick_random()
+	#peebo.move_to(target)
 	peebo.drink()
 	return true
