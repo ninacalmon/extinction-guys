@@ -3,13 +3,13 @@ class_name Creature
 
 var tile_pos: Vector2i
 
-var age: int = 0
-var hunger: int = 10
-var thirst: int = 5
+@export var MAX_AGE: int = 100
+@export var MAX_HUNGER: int = 60
+@export var MAX_THIRST: int = 40
 
-const MAX_AGE: int = 100
-const MAX_HUNGER: int = 60
-const MAX_THIRST: int = 40
+var age: int = randi_range(0, floor(MAX_AGE/4.0))
+var hunger: int = randi_range(0, floor(MAX_HUNGER/4.0))
+var thirst: int = randi_range(0, floor(MAX_THIRST/4.0))
 
 enum SexType {F, M}
 var sex: SexType
@@ -24,14 +24,6 @@ var is_hovered: bool = false
 @export var visuals: Visuals 
 @export var actions: Actions 
 @export var sprite: AnimatedSprite2D 
-
-func _ready() -> void:
-	my_name = Globals.names.pick_random()
-
-	sex = [SexType.F, SexType.M].pick_random()
-	visuals.set_up_sprite(sex)
-
-	TimeManager.turn_passed.connect(_on_turn)
 
 
 func _on_turn():

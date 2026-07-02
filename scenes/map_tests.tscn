@@ -7,8 +7,10 @@
 [ext_resource type="Script" uid="uid://b2rgsfgaonm0h" path="res://scripts/map/peebo_instanciator.gd" id="4_d6e46"]
 [ext_resource type="PackedScene" uid="uid://btarjbioihsjj" path="res://scenes/peepo/peebo.tscn" id="4_vanih"]
 [ext_resource type="PackedScene" uid="uid://02wqt3m18nua" path="res://scenes/peepo/peebo_egg.tscn" id="7_wikph"]
+[ext_resource type="Script" uid="uid://blt5wp7yjx1ka" path="res://scripts/map/mimo_instanciator.gd" id="8_kwnc2"]
 [ext_resource type="Script" uid="uid://bl48wc50s10dw" path="res://scripts/camera_2d.gd" id="8_x5erc"]
 [ext_resource type="Script" uid="uid://c1jjxqfj0tid8" path="res://scripts/focus_requester.gd" id="9_8diex"]
+[ext_resource type="PackedScene" uid="uid://cqvxa7xr6tjiv" path="res://scenes/mimo/mimo.tscn" id="9_ihq2d"]
 [ext_resource type="PackedScene" uid="uid://bxr6ekishyxbt" path="res://scenes/UI/stats_pop_up.tscn" id="10_ydy1f"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yn7vm"]
@@ -64,6 +66,11 @@ script = ExtResource("4_d6e46")
 peebo_start_amount = 80
 peebo_scene = ExtResource("4_vanih")
 egg_scene = ExtResource("7_wikph")
+
+[node name="MimoInstanciator" type="Node2D" parent="." unique_id=2083362866]
+y_sort_enabled = true
+script = ExtResource("8_kwnc2")
+mimo_scene = ExtResource("9_ihq2d")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2102604802 node_paths=PackedStringArray("focus_requester")]
 script = ExtResource("8_x5erc")

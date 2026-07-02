@@ -2,8 +2,16 @@
 
 [ext_resource type="Script" uid="uid://b2c4hnqu7gmji" path="res://time_manager.gd" id="1_6iwvb"]
 
-[node name="TimeManager" type="Node2D" unique_id=832301904 node_paths=PackedStringArray("turn_timer")]
+[node name="TimeManager" type="Node2D" unique_id=832301904 node_paths=PackedStringArray("turn_timer", "half_turn_timer", "double_turn_timer")]
 script = ExtResource("1_6iwvb")
 turn_timer = NodePath("TurnTimer")
+half_turn_timer = NodePath("HalfTurnTimer")
+double_turn_timer = NodePath("DoubleTurnTimer")
 
 [node name="TurnTimer" type="Timer" parent="." unique_id=152940981]
+
+[node name="HalfTurnTimer" type="Timer" parent="." unique_id=533165943]
+wait_time = 0.5
+
+[node name="DoubleTurnTimer" type="Timer" parent="." unique_id=528208773]
+wait_time = 2.0

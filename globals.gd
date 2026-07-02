@@ -10,6 +10,7 @@ var world: Dictionary = {}
 var entities: Dictionary = {}
 
 var peebo_instanciator: PeeboInstanciator
+var mimo_instanciator: MimoInstanciator
 
 const DIRS := [
 	Vector2i.LEFT,

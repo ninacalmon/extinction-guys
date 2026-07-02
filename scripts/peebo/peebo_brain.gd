@@ -1,5 +1,5 @@
 extends Brain
-class_name MimoBrain
+class_name PeepoBrain
 
 func think() -> Array[ActionTypes.ActionType]:
 	var priorities: Array[ActionTypes.ActionType] = []

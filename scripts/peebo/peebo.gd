@@ -1,6 +1,14 @@
 extends Creature
 class_name Peebo
 
+func _ready() -> void:
+	my_name = Globals.names.pick_random()
+
+	sex = [SexType.F, SexType.M].pick_random()
+	visuals.set_up_sprite(sex)
+
+	TimeManager.turn_passed.connect(_on_turn)
+
 
 var is_focused: bool = false:
 	set(value):

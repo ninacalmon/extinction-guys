@@ -11,10 +11,10 @@ func _ready():
 		ActionTypes.ActionType.REPRODUCE: $ReproduceAction,
 	}
 
-func execute(action: ActionTypes.ActionType, peebo: Peebo) -> bool:
+func execute(action: ActionTypes.ActionType, mimo: Mimo) -> bool:
 	var action_node: BaseAction = action_map.get(action)
 
 	if action_node:
-		return action_node.execute(peebo)
+		return action_node.execute(mimo)
 
 	return false
