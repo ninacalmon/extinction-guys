@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cqvxa7xr6tjiv"]
+
+[ext_resource type="Script" uid="uid://4mk385fawelv" path="res://scripts/mimo/mimo.gd" id="1_k4i4a"]
+
+[node name="Mimo" type="Node2D" unique_id=1720560750]
+script = ExtResource("1_k4i4a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=631541452]

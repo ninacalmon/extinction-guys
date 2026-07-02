@@ -4,7 +4,7 @@ class_name FocusRequester
 signal focus_request(entity: Node2D)
 
 
-var targeted_entity: Peebo
+var targeted_entity: Creature
 
 func _input(event):
 	if event.is_action_pressed("left_click"):
@@ -12,7 +12,7 @@ func _input(event):
 		var tile_pos = Globals.map.world_to_tile(world_pos)
 
 		var entity = Globals.get_entity(tile_pos)
-		if entity is Peebo:
+		if entity is Creature:
 			focus_request.emit(entity)
 
 func _unhandled_input(event: InputEvent) -> void:

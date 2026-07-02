@@ -2,12 +2,12 @@ extends BaseAction
 class_name WanderAction
 
 
-func execute(peebo: Peebo) -> bool:
+func execute(creature: Creature) -> bool:
 	var dirs = Globals.DIRS.duplicate()
 	dirs.shuffle()
 
 	for dir in dirs:
-		var next = peebo.tile_pos + dir
+		var next = creature.tile_pos + dir
 
 		if Globals.is_occupied(next):
 			continue
@@ -15,7 +15,7 @@ func execute(peebo: Peebo) -> bool:
 		if Globals.get_ground(next) == "" or Globals.get_ground(next) == "water":
 			continue
 
-		peebo.move_to(next)
+		creature.move_to(next)
 		return true
 
 	return false

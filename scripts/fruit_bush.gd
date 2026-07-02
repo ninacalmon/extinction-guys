@@ -10,6 +10,7 @@ var fruits: int = 3:
 const TURNS_TO_REGROW: int = 5
 var turns_passed: int = 0
 
+var tile_pos: Vector2i
 
 func _ready() -> void:
 	TimeManager.turn_passed.connect(_on_turn)

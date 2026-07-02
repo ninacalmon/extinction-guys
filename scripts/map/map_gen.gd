@@ -81,6 +81,7 @@ func generate_world() -> void:
 					Globals.add_entity(pos, bush_instance)
 
 					bush_instance.global_position = tile_to_world(pos)
+					bush_instance.tile_pos = pos
 
 				Globals.set_tile(pos, "grass")
 

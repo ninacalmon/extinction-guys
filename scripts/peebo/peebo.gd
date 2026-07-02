@@ -1,83 +1,20 @@
-extends Node2D
+extends Creature
 class_name Peebo
 
-var tile_pos: Vector2i
 
-var age: int = 0
-var hunger: int = 10
-var thirst: int = 5
-
-const MAX_AGE: int = 100
-const MAX_HUNGER: int = 60
-const MAX_THIRST: int = 40
-
-enum SexType {F, M}
-var sex: SexType
-
-var had_child: bool = false
-
-@onready var brain: PeeboBrain = $PeeboBrain
-@onready var actions: PeeboActions = $PeeboActions
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+var is_focused: bool = false:
+	set(value):
+		visuals.is_focused = value
 
 
-func _ready() -> void:
-	sex = [SexType.F, SexType.M].pick_random()
-	set_up_sprite()
-
-	TimeManager.turn_passed.connect(_on_turn)
-
-
-func _on_turn():
-	sprite.self_modulate = Color.WHITE
-	update_stats()
-
-	if is_overpopulated():
-		die("overpopulation")
-		return
-
-	if should_die():
-		var text = str(age, hunger, thirst)
-		die("morte morrida. STATS: age: %d, hunger: %d, thirst: %d" %[age, hunger, thirst])
-		return
-
-	for action in brain.think():
-		if actions.execute(action, self):
-			return
-
-
-func update_stats():
-	age += 1
-	hunger += 1
-	thirst += 1
-
-
-func should_die() -> bool:
-	return age >= MAX_AGE or hunger >= MAX_HUNGER or thirst >= MAX_THIRST
-
-
-func is_overpopulated() -> bool:
-	return Globals.get_neighbors_of_script(tile_pos, Peebo).size() >= 4
-
-
-func die(reason: String):
-	print("DIED OF : ", reason)
-	TimeManager.turn_passed.disconnect(_on_turn)
-	Globals.remove_entity(tile_pos)
-	var tween = create_tween()
-	tween.tween_property(sprite, "self_modulate", Color.BLACK, 0.5)
-	await tween.finished
-	queue_free()
-
-func eat():
-	var tween = create_tween()
-	tween.tween_property(sprite, "self_modulate", Color.RED, 0.5)
+func eat(pos: Vector2i):
+	visuals.eat_anim(pos)
+	#tween.tween_property(sprite, "self_modulate", Color.RED, 0.5)
 	hunger = 0
 
 
-func drink():
-	var tween = create_tween()
-	tween.tween_property(sprite, "self_modulate", Color.BLUE, 0.5)
+func drink(pos: Vector2i):
+	visuals.drink_anim(pos)
 	thirst = 0
 
 
@@ -116,10 +53,16 @@ func can_reproduce_with(other: Peebo) -> bool:
 
 	return true
 
-func set_up_sprite():
-	sprite.flip_h = randi_range(0, 1)
-	sprite.play("idle")
+func reproduce(partner: Peebo):
+	visuals.reproduce()
 
-	match sex:
-		SexType.F: sprite.modulate = Color(1.0, 0.6, 0.8)
-		SexType.M: sprite.modulate = Color(0.6, 0.7, 1.0)
+	partner.visuals.reproduce()
+
+	Globals.peebo_instanciator.create_new_egg(tile_pos + Vector2i(0, 1))
+	had_child = true
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		var mouse_world_pos = get_global_mouse_position()
+		var mouse_tile_pos = Globals.map.world_to_tile(mouse_world_pos)
+		is_hovered = tile_pos == mouse_tile_pos

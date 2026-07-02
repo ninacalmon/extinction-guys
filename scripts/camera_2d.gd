@@ -14,7 +14,7 @@ var target_zoom: Vector2
 var next_zoom: Vector2
 var target_pos: Vector2
 
-var target: Node2D = null
+var target: Creature = null
 
 var can_zoom_in: bool = false
 
@@ -27,6 +27,7 @@ func _on_focus_requested(entity: Node2D):
 	if target:
 		return
 	target = entity
+	target.is_focused = true
 	target_zoom = def_zoom_in
 	focus_requester.targeted_entity = target
 
@@ -42,7 +43,11 @@ func _process(delta: float) -> void:
 	zoom = zoom.lerp(target_zoom, zoom_speed * delta)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("middle_mouse_button"):
+	if event.is_action_pressed("cancel_focus"):
+		if is_instance_valid(target):
+			EventBus.entity_hover_exited.emit(target)
+			target.is_focused = false
+
 		target = null
 		focus_requester.targeted_entity = target
 		target_zoom = default_zoom

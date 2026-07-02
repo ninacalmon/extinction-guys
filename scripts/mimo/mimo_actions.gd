@@ -1,5 +1,5 @@
 extends Actions
-class_name PeeboActions
+class_name MimoActions
 
 var action_map: Dictionary
 
