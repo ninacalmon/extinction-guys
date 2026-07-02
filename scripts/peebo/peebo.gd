@@ -8,8 +8,8 @@ var hunger: int = 10
 var thirst: int = 5
 
 const MAX_AGE: int = 100
-const MAX_HUNGER: int = 40
-const MAX_THIRST: int = 25
+const MAX_HUNGER: int = 60
+const MAX_THIRST: int = 40
 
 enum SexType {F, M}
 var sex: SexType
@@ -33,11 +33,12 @@ func _on_turn():
 	update_stats()
 
 	if is_overpopulated():
-		die()
+		die("overpopulation")
 		return
 
 	if should_die():
-		die()
+		var text = str(age, hunger, thirst)
+		die("morte morrida. STATS: age: %d, hunger: %d, thirst: %d" %[age, hunger, thirst])
 		return
 
 	for action in brain.think():
@@ -59,7 +60,8 @@ func is_overpopulated() -> bool:
 	return Globals.get_neighbors_of_script(tile_pos, Peebo).size() >= 4
 
 
-func die():
+func die(reason: String):
+	print("DIED OF : ", reason)
 	TimeManager.turn_passed.disconnect(_on_turn)
 	Globals.remove_entity(tile_pos)
 	var tween = create_tween()
@@ -98,7 +100,7 @@ func move_to(next: Vector2i):
 
 
 func can_reproduce() -> bool:
-	return age >= MAX_AGE / 5.0 and !had_child
+	return age >= MAX_AGE / 10.0 and !had_child
 
 func can_reproduce_with(other: Peebo) -> bool:
 	if !can_reproduce():

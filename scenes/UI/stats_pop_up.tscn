@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bxr6ekishyxbt"]
+
+[ext_resource type="Theme" uid="uid://clellqjdv8587" path="res://resources/default.tres" id="1_1p7x6"]
+
+[node name="StatsPopUp" type="Control" unique_id=43188426]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1355567244]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 155.0
+grow_vertical = 0
+theme = ExtResource("1_1p7x6")
+bbcode_enabled = true
+text = "[shadow]name: Bigus
+age: 12
+hunger: 10/30
+thirst: 16/45"
+fit_content = true

@@ -28,7 +28,6 @@ func _on_turn():
 
 func hatch():
 	hatching = true
-	print("HATCHING at :", tile_pos)
 
 	animation_player.play("egg_shake_max")
 	await animation_player.animation_finished

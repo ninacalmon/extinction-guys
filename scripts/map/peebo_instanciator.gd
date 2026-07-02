@@ -56,7 +56,6 @@ func create_new_peebo(pos: Vector2i):
 	add_child(new_peebo)
 
 func create_new_egg(pos: Vector2i):
-	print("niu eguiQ")
 	var new_egg: PeeboEgg = egg_scene.instantiate()
 
 	new_egg.tile_pos = pos

@@ -1,0 +1,12 @@
+[gd_resource type="Theme" format=3 uid="uid://clellqjdv8587"]
+
+[ext_resource type="FontFile" uid="uid://b8avu8dpdlw5g" path="res://resources/PressStart2P.ttf" id="1_i71n2"]
+
+[resource]
+RichTextLabel/constants/line_separation = 4
+RichTextLabel/constants/outline_size = 4
+RichTextLabel/constants/shadow_outline_size = 6
+RichTextLabel/font_sizes/bold_font_size = 10
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/bold_font = ExtResource("1_i71n2")
+RichTextLabel/fonts/normal_font = ExtResource("1_i71n2")
