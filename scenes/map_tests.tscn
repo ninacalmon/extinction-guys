@@ -70,6 +70,7 @@ egg_scene = ExtResource("7_wikph")
 [node name="MimoInstanciator" type="Node2D" parent="." unique_id=2083362866]
 y_sort_enabled = true
 script = ExtResource("8_kwnc2")
+mimo_start_amount = 100
 mimo_scene = ExtResource("9_ihq2d")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2102604802 node_paths=PackedStringArray("focus_requester")]

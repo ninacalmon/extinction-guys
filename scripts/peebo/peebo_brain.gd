@@ -10,6 +10,10 @@ func think() -> Array[ActionTypes.ActionType]:
 	if creature.hunger > creature.MAX_HUNGER / 3.0:
 		priorities.append(ActionTypes.ActionType.EAT)
 
+	if creature.hunger > creature.MAX_HUNGER / 5.0 or \
+	creature.thirst > creature.MAX_THIRST / 5.0:
+		priorities.append(ActionTypes.ActionType.HUNT)
+
 	if creature.can_reproduce():
 		priorities.append(ActionTypes.ActionType.REPRODUCE)
 

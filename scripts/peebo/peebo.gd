@@ -17,14 +17,18 @@ var is_focused: bool = false:
 
 func eat(pos: Vector2i):
 	visuals.eat_anim(pos)
-	#tween.tween_property(sprite, "self_modulate", Color.RED, 0.5)
-	hunger = 0
+	hunger = floor(hunger * 0.3)
 
 
 func drink(pos: Vector2i):
 	visuals.drink_anim(pos)
-	thirst = 0
+	thirst = floor(thirst * 0.3)
 
+func prey(pos: Vector2i):
+	visuals.prey(pos)
+	had_child = false
+	hunger = 0
+	thirst = 0
 
 func move_to(next: Vector2i):
 	var old_pos = tile_pos

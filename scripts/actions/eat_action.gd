@@ -10,8 +10,9 @@ func execute(creature: Creature) -> bool:
 		pos = creature.tile_pos + dir
 		var entity = Globals.get_entity(pos)
 
-		if entity is FruitBush and entity.can_collect():
-			valid_bushes.append(entity)
+		if is_instance_valid(entity):
+			if entity is FruitBush and entity.can_collect():
+				valid_bushes.append(entity)
 
 	if valid_bushes.is_empty():
 		return false

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btarjbioihsjj"]
 
 [ext_resource type="Script" uid="uid://bp1jrl52t6s2q" path="res://scripts/peebo/peebo.gd" id="1_x8uct"]
+[ext_resource type="Script" uid="uid://4mk385fawelv" path="res://scripts/mimo/mimo.gd" id="2_5qi01"]
 [ext_resource type="Texture2D" uid="uid://dgl4liki044va" path="res://sprites/peebo.png" id="2_vte7y"]
 [ext_resource type="Shader" uid="uid://c0wwjms8yu54r" path="res://resources/outline.gdshader" id="2_xr2y1"]
 [ext_resource type="Script" uid="uid://dkh5dsdy6evtu" path="res://scripts/peebo/peebo_brain.gd" id="3_4i7lc"]
@@ -11,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cu5parjmby832" path="res://scripts/actions/wander_action.gd" id="7_xr2y1"]
 [ext_resource type="Script" uid="uid://bhvuqyfbvo6o3" path="res://scripts/actions/reproduce_action.gd" id="8_vte7y"]
 [ext_resource type="Texture2D" uid="uid://crrl5dch0y0ws" path="res://sprites/reactions.png" id="11_t6lr1"]
+[ext_resource type="Script" uid="uid://byvck7jtltc37" path="res://scripts/actions/hunt_action.gd" id="12_vqlfs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vte7y"]
 shader = ExtResource("2_xr2y1")
@@ -223,13 +225,14 @@ brain = NodePath("PeeboBrain")
 visuals = NodePath("PeeboVisuals")
 actions = NodePath("PeeboActions")
 sprite = NodePath("AnimatedSprite2D")
+creature_to_prey = ExtResource("2_5qi01")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1638064764]
 material = SubResource("ShaderMaterial_vte7y")
 instance_shader_parameters/enabled = false
 sprite_frames = SubResource("SpriteFrames_cdpwx")
 animation = &"idle"
-frame = 2
+frame_progress = 0.5520404
 offset = Vector2(0, -6)
 
 [node name="PeeboBrain" type="Node" parent="." unique_id=1649511547 node_paths=PackedStringArray("creature")]
@@ -264,6 +267,10 @@ metadata/_custom_type_script = "uid://cu5parjmby832"
 [node name="ReproduceAction" type="Node" parent="PeeboActions" unique_id=1083489350]
 script = ExtResource("8_vte7y")
 metadata/_custom_type_script = "uid://bhvuqyfbvo6o3"
+
+[node name="HuntAction" type="Node" parent="PeeboActions" unique_id=1065188836]
+script = ExtResource("12_vqlfs")
+metadata/_custom_type_script = "uid://byvck7jtltc37"
 
 [node name="ReactionSprite" type="Sprite2D" parent="." unique_id=1666792815]
 position = Vector2(0, -7)

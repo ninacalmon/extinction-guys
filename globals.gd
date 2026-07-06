@@ -55,10 +55,36 @@ func get_neighbors_of_script(pos: Vector2i, script: Script) -> Array:
 	for dir in DIRS:
 		var entity = get_entity(pos + dir)
 
-		if entity != null and entity.get_script() == script:
-			neighbors.append(entity)
+		if entity != null:
+			var s: Script = entity.get_script()
+
+			while s:
+				if s == script:
+					neighbors.append(entity)
+					break
+				s = s.get_base_script()
 
 	return neighbors
+
+func get_valid_directions(pos: Vector2i) -> Array[Vector2i]:
+	var valid: Array[Vector2i] = []
+
+	for dir in DIRS:
+		if is_in_bounds(pos + dir):
+			valid.append(dir)
+
+	return valid
+
+func is_in_bounds(pos: Vector2i) -> bool:
+	var half_width := world_width / 2
+	var half_height := world_height / 2
+
+	return (
+		pos.x >= -half_width
+		and pos.x < half_width
+		and pos.y >= -half_height
+		and pos.y < half_height
+	)
 
 #region Names
 var names: Array[String] = [

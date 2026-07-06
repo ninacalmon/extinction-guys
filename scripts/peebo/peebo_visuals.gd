@@ -47,6 +47,22 @@ func drink_anim(pos: Vector2i):
 
 	reaction_sprite.hide()
 
+func prey(pos: Vector2i):
+	sprite.flip_h = pos.x < creature.tile_pos.x
+
+	reaction_sprite.frame = 3
+	reaction_sprite.global_position = Globals.map.tile_to_world(pos)
+
+	reaction_sprite.show()
+
+	var tween = create_tween()
+	tween.tween_property(reaction_sprite, "global_position", Globals.map.tile_to_world(creature.tile_pos), 0.6)
+	animation_player.play("gather")
+
+	await animation_player.animation_finished
+
+	reaction_sprite.hide()
+
 func reproduce():
 	reaction_sprite.frame = 2
 	reaction_sprite.show()

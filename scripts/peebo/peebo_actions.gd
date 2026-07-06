@@ -9,6 +9,7 @@ func _ready():
 		ActionTypes.ActionType.EAT: $EatAction,
 		ActionTypes.ActionType.DRINK: $DrinkAction,
 		ActionTypes.ActionType.REPRODUCE: $ReproduceAction,
+		ActionTypes.ActionType.HUNT: $HuntAction
 	}
 
 func execute(action: ActionTypes.ActionType, peebo: Peebo) -> bool:

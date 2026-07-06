@@ -4,5 +4,6 @@ enum ActionType {
 	WANDER,
 	EAT,
 	DRINK,
-	REPRODUCE
+	REPRODUCE,
+	HUNT
 }

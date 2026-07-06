@@ -43,6 +43,10 @@ func spawn_peebo():
 
 		break
 
+	new_peebo.age = randi_range(0, floor(new_peebo.MAX_AGE/4.0))
+	new_peebo.hunger = randi_range(0, floor(new_peebo.MAX_HUNGER/4.0))
+	new_peebo.thirst = randi_range(0, floor(new_peebo.MAX_THIRST/4.0))
+
 	add_child(new_peebo)
 
 func create_new_peebo(pos: Vector2i):

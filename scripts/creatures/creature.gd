@@ -7,9 +7,9 @@ var tile_pos: Vector2i
 @export var MAX_HUNGER: int = 60
 @export var MAX_THIRST: int = 40
 
-var age: int = randi_range(0, floor(MAX_AGE/4.0))
-var hunger: int = randi_range(0, floor(MAX_HUNGER/4.0))
-var thirst: int = randi_range(0, floor(MAX_THIRST/4.0))
+var age: int = 0
+var hunger: int = 0
+var thirst: int = 0
 
 enum SexType {F, M}
 var sex: SexType
@@ -24,6 +24,8 @@ var is_hovered: bool = false
 @export var visuals: Visuals 
 @export var actions: Actions 
 @export var sprite: AnimatedSprite2D 
+
+@export var creature_to_prey: Script
 
 
 func _on_turn():
@@ -48,15 +50,15 @@ func update_stats():
 	thirst += 1
 
 func is_overpopulated() -> bool:
-	return Globals.get_neighbors_of_script(tile_pos, Creature).size() >= 4
+	return Globals.get_neighbors_of_script(tile_pos, Creature).size() >= 3
 
 
 func should_die() -> bool:
+	print("VOU MORRER DE IDADE?  ", age >= MAX_AGE)
 	return age >= MAX_AGE or hunger >= MAX_HUNGER or thirst >= MAX_THIRST
 
 
 func die():
-	TimeManager.turn_passed.disconnect(_on_turn)
 	Globals.remove_entity(tile_pos)
 	await visuals.die()
 	queue_free()
