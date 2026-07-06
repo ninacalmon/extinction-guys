@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://c1jjxqfj0tid8" path="res://scripts/focus_requester.gd" id="11_37s47"]
 [ext_resource type="PackedScene" uid="uid://bxr6ekishyxbt" path="res://scenes/UI/stats_pop_up.tscn" id="12_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://dvsgt5sb3dtm" path="res://scenes/UI/creature_count_ui.tscn" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://b2abpb3xwddv5" path="res://scenes/UI/day_count_ui.tscn" id="14_trtic"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yn7vm"]
 noise_type = 3
@@ -100,3 +101,12 @@ mouse_filter = 2
 [node name="CreatureCount" parent="CanvasLayer/Control" unique_id=123356830 instance=ExtResource("13_kvuet")]
 layout_mode = 1
 offset_bottom = 92.0
+
+[node name="DayCount" parent="CanvasLayer/Control" unique_id=2083667652 instance=ExtResource("14_trtic")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_right = 0.0
+grow_horizontal = 0

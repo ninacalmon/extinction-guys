@@ -2,6 +2,8 @@ extends Node
 
 signal creature_amount_changed
 
+var day: int
+
 var peebo_amount: int = 0:
 	set(value):
 		peebo_amount = value
@@ -22,3 +24,5 @@ var creature_counter: CreatureCounter = preload("res://scripts/creature_counter.
 func _ready() -> void:
 	EventBus.died.connect(creature_counter._on_creature_died)
 	EventBus.born.connect(creature_counter._on_creature_born)
+
+	TimeManager.turn_passed.connect(func(): day += 1)

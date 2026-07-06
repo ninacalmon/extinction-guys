@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b2abpb3xwddv5"]
+
+[ext_resource type="Script" uid="uid://xpkxlx8j8i1g" path="res://scripts/ui/day_count_ui.gd" id="1_og00b"]
+[ext_resource type="Theme" uid="uid://clellqjdv8587" path="res://resources/default.tres" id="2_bfogt"]
+
+[node name="DayCount" type="VBoxContainer" unique_id=2083667652]
+offset_right = 83.0
+offset_bottom = 104.0
+mouse_filter = 2
+script = ExtResource("1_og00b")
+
+[node name="RichTextLabelTitle" type="RichTextLabel" parent="." unique_id=489467597]
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("2_bfogt")
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[wave amp=12 freq=4][b]DAY[/b][/wave]
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1509882234]
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("2_bfogt")
+theme_override_constants/shadow_outline_size = 12
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]0100[/b]
+"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
