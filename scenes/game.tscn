@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bxr6ekishyxbt" path="res://scenes/UI/stats_pop_up.tscn" id="12_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://dvsgt5sb3dtm" path="res://scenes/UI/creature_count_ui.tscn" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b2abpb3xwddv5" path="res://scenes/UI/day_count_ui.tscn" id="14_trtic"]
+[ext_resource type="PackedScene" uid="uid://bvth8e130vwix" path="res://scenes/UI/effects_list.tscn" id="15_ir15t"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yn7vm"]
 noise_type = 3
@@ -74,6 +75,7 @@ wungus_scene = ExtResource("8_264po")
 egg_scene = ExtResource("9_1kice")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2102604802 node_paths=PackedStringArray("focus_requester")]
+offset = Vector2(0, 32)
 script = ExtResource("10_5newe")
 focus_requester = NodePath("FocusRequester")
 
@@ -93,7 +95,7 @@ anchor_bottom = 1.0
 offset_left = 42.0
 offset_top = 32.0
 offset_right = -42.0
-offset_bottom = -32.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -110,3 +112,10 @@ anchor_right = 1.0
 offset_left = -83.0
 offset_right = 0.0
 grow_horizontal = 0
+
+[node name="EffectsButtons" parent="CanvasLayer/Control" unique_id=1053261924 instance=ExtResource("15_ir15t")]
+layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0

@@ -29,7 +29,7 @@ theme_override_constants/shadow_outline_size = 12
 theme_override_font_sizes/normal_font_size = 12
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
-text = "[b]0100[/b]
+text = "[b]00[/b]
 "
 fit_content = true
 autowrap_mode = 0

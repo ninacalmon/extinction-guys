@@ -14,4 +14,4 @@ func update_text():
 		day = "0%d" %StatsManager.day
 
 	rich_text_label.text = \
-"[b]%s[/b]" %[day]
+"[b][pulse freq=1.0 color=#ffffff40 ease=10.0]%s[/pulse][/b]" %[day]

@@ -10,6 +10,9 @@ class_name MapGen
 var width: int
 var height: int
 
+var total_width: int
+var total_height: int
+
 var main_noise: Noise
 var bush_noise: Noise
 
@@ -43,6 +46,9 @@ func _ready() -> void:
 
 	width = Globals.world_width
 	height = Globals.world_height
+
+	total_width = width * 5
+	total_height = height * 5
 
 	#global_position = get_viewport().get_center()
 

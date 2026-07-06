@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ctu34uirr304r"]
+
+[ext_resource type="Theme" uid="uid://clellqjdv8587" path="res://resources/default.tres" id="1_8vy0c"]
+[ext_resource type="Script" uid="uid://v70yn5wo1t2s" path="res://sprites/ui/effect_button_ui.gd" id="1_cv07h"]
+[ext_resource type="Shader" uid="uid://c0wwjms8yu54r" path="res://resources/outline.gdshader" id="3_menai"]
+[ext_resource type="Texture2D" uid="uid://b6x8r3xrmbssj" path="res://sprites/ui/wungus_bag.png" id="4_p2e2r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0t3yi"]
+shader = ExtResource("3_menai")
+shader_parameter/rounded = false
+shader_parameter/alpha_threshold = 0.2
+
+[node name="EffectButton" type="VBoxContainer" unique_id=1192435027]
+custom_minimum_size = Vector2(80, 64)
+offset_right = 94.0
+offset_bottom = 40.0
+theme_override_constants/separation = -4
+script = ExtResource("1_cv07h")
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1231093214]
+custom_minimum_size = Vector2(0, 12)
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("1_8vy0c")
+text = "titolo"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=706281086]
+material = SubResource("ShaderMaterial_0t3yi")
+instance_shader_parameters/enabled = false
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+texture_normal = ExtResource("4_p2e2r")
+stretch_mode = 5
