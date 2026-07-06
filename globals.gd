@@ -9,8 +9,7 @@ var world_height: int = 32
 var world: Dictionary = {}
 var entities: Dictionary = {}
 
-var peebo_instanciator: PeeboInstanciator
-var mimo_instanciator: MimoInstanciator
+var creature_instanciator: CreatureInstanciator
 
 const DIRS := [
 	Vector2i.LEFT,

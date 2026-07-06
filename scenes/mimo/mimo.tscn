@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cqvxa7xr6tjiv"]
 
-[ext_resource type="Script" uid="uid://4mk385fawelv" path="res://scripts/mimo/mimo.gd" id="1_k4i4a"]
-[ext_resource type="Script" uid="uid://ctnl52vbt37fw" path="res://scripts/mimo/peebo_brain.gd" id="3_oid1s"]
+[ext_resource type="Script" uid="uid://4mk385fawelv" path="res://scripts/creatures/mimo/mimo.gd" id="1_k4i4a"]
+[ext_resource type="Script" uid="uid://ctnl52vbt37fw" path="res://scripts/creatures/mimo/peebo_brain.gd" id="3_oid1s"]
 [ext_resource type="Texture2D" uid="uid://brjlo6s8nd021" path="res://sprites/mimo.png" id="3_rwwdy"]
-[ext_resource type="Script" uid="uid://8oehekru5cg3" path="res://scripts/mimo/mimo_visuals.gd" id="4_3gxbi"]
-[ext_resource type="Script" uid="uid://6y6xvlye5a3f" path="res://scripts/mimo/mimo_actions.gd" id="5_oid1s"]
+[ext_resource type="Script" uid="uid://8oehekru5cg3" path="res://scripts/creatures/mimo/mimo_visuals.gd" id="4_3gxbi"]
+[ext_resource type="Script" uid="uid://6y6xvlye5a3f" path="res://scripts/creatures/mimo/mimo_actions.gd" id="5_oid1s"]
 [ext_resource type="Script" uid="uid://b0h1u36yi0hwj" path="res://scripts/actions/drink_action.gd" id="6_oid1s"]
 [ext_resource type="Script" uid="uid://ddo6lgmyapbry" path="res://scripts/actions/eat_action.gd" id="7_n0q0j"]
 [ext_resource type="Script" uid="uid://cu5parjmby832" path="res://scripts/actions/wander_action.gd" id="8_rwwdy"]
@@ -45,9 +45,9 @@ animations = [{
 
 [node name="Mimo" type="Node2D" unique_id=1720560750 node_paths=PackedStringArray("brain", "visuals", "actions", "sprite")]
 script = ExtResource("1_k4i4a")
-MAX_AGE = 200
 MAX_HUNGER = 1000
 MAX_THIRST = 1000
+MAX_CHILDREN = 4
 brain = NodePath("MimoBrain")
 visuals = NodePath("MimoVisuals")
 actions = NodePath("MimoActions")
@@ -57,7 +57,6 @@ sprite = NodePath("AnimatedSprite2D")
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_cdpwx")
 animation = &"walk"
-frame_progress = 0.67281216
 offset = Vector2(0, -5)
 
 [node name="MimoBrain" type="Node" parent="." unique_id=128953180 node_paths=PackedStringArray("creature")]

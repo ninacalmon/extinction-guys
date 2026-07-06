@@ -37,6 +37,7 @@ func hatch():
 	tween.tween_property(self, "modulate:a", 0, 0.5)
 	await tween.finished
 
-	Globals.peebo_instanciator.create_new_peebo(tile_pos)
+	Globals.creature_instanciator.current_creature = Globals.creature_instanciator.peebo_scene
+	Globals.creature_instanciator.create_new_creature(tile_pos)
 
 	queue_free()

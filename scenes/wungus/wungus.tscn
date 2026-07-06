@@ -1,63 +1,60 @@
-[gd_scene format=3 uid="uid://btarjbioihsjj"]
+[gd_scene format=3 uid="uid://b2hnck4wyd013"]
 
-[ext_resource type="Script" uid="uid://bp1jrl52t6s2q" path="res://scripts/creatures/peebo/peebo.gd" id="1_x8uct"]
-[ext_resource type="Script" uid="uid://4mk385fawelv" path="res://scripts/creatures/mimo/mimo.gd" id="2_5qi01"]
-[ext_resource type="Texture2D" uid="uid://dgl4liki044va" path="res://sprites/peebo.png" id="2_vte7y"]
-[ext_resource type="Shader" uid="uid://c0wwjms8yu54r" path="res://resources/outline.gdshader" id="2_xr2y1"]
-[ext_resource type="Script" uid="uid://dkh5dsdy6evtu" path="res://scripts/creatures/peebo/peebo_brain.gd" id="3_4i7lc"]
-[ext_resource type="Script" uid="uid://d3goa3ob6r3cf" path="res://scripts/creatures/peebo/peebo_actions.gd" id="4_4i7lc"]
-[ext_resource type="Script" uid="uid://b0h1u36yi0hwj" path="res://scripts/actions/drink_action.gd" id="5_llx2r"]
-[ext_resource type="Script" uid="uid://dbetoo8hrv0mk" path="res://scripts/creatures/peebo/peebo_visuals.gd" id="5_v4adu"]
-[ext_resource type="Script" uid="uid://ddo6lgmyapbry" path="res://scripts/actions/eat_action.gd" id="6_vte7y"]
-[ext_resource type="Script" uid="uid://cu5parjmby832" path="res://scripts/actions/wander_action.gd" id="7_xr2y1"]
-[ext_resource type="Script" uid="uid://bhvuqyfbvo6o3" path="res://scripts/actions/reproduce_action.gd" id="8_vte7y"]
-[ext_resource type="Texture2D" uid="uid://crrl5dch0y0ws" path="res://sprites/reactions.png" id="11_t6lr1"]
-[ext_resource type="Script" uid="uid://byvck7jtltc37" path="res://scripts/actions/hunt_action.gd" id="12_vqlfs"]
+[ext_resource type="Script" uid="uid://bxniw3pkirqex" path="res://scripts/creatures/wungus/wungus.gd" id="1_cnqsw"]
+[ext_resource type="Script" uid="uid://bp1jrl52t6s2q" path="res://scripts/creatures/peebo/peebo.gd" id="2_4xisj"]
+[ext_resource type="Texture2D" uid="uid://c7psd2sgwhl8b" path="res://sprites/wungus.png" id="2_peyuk"]
+[ext_resource type="Script" uid="uid://bpuchtsa6qa6u" path="res://scripts/creatures/wungus/wungus_brain.gd" id="3_4xisj"]
+[ext_resource type="Shader" uid="uid://c0wwjms8yu54r" path="res://resources/outline.gdshader" id="3_rofe5"]
+[ext_resource type="Script" uid="uid://8wjb7qm1dbvt" path="res://scripts/creatures/wungus/wungus_visuals.gd" id="4_rofe5"]
+[ext_resource type="Script" uid="uid://dynd3ptfwhd71" path="res://scripts/creatures/wungus/wungus_actions.gd" id="5_8a4bc"]
+[ext_resource type="Script" uid="uid://byvck7jtltc37" path="res://scripts/actions/hunt_action.gd" id="6_ppnxs"]
+[ext_resource type="Script" uid="uid://bhvuqyfbvo6o3" path="res://scripts/actions/reproduce_action.gd" id="7_biebk"]
+[ext_resource type="Script" uid="uid://cu5parjmby832" path="res://scripts/actions/wander_action.gd" id="8_3caqu"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vte7y"]
-shader = ExtResource("2_xr2y1")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4xisj"]
+shader = ExtResource("3_rofe5")
 shader_parameter/rounded = false
 shader_parameter/alpha_threshold = 0.2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xr2y1"]
-atlas = ExtResource("2_vte7y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr57f"]
+atlas = ExtResource("2_peyuk")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v4adu"]
-atlas = ExtResource("2_vte7y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3xc7"]
+atlas = ExtResource("2_peyuk")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6lr1"]
-atlas = ExtResource("2_vte7y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xfxi"]
+atlas = ExtResource("2_peyuk")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cuvig"]
-atlas = ExtResource("2_vte7y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_auhk1"]
+atlas = ExtResource("2_peyuk")
 region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kd4ps"]
-atlas = ExtResource("2_vte7y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kq83"]
+atlas = ExtResource("2_peyuk")
 region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pv8n8"]
-atlas = ExtResource("2_vte7y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l2q0"]
+atlas = ExtResource("2_peyuk")
 region = Rect2(32, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yyjpl"]
-atlas = ExtResource("2_vte7y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jitji"]
+atlas = ExtResource("2_peyuk")
 region = Rect2(48, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cdpwx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xr2y1")
+"texture": SubResource("AtlasTexture_cr57f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v4adu")
+"texture": SubResource("AtlasTexture_h3xc7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t6lr1")
+"texture": SubResource("AtlasTexture_6xfxi")
 }],
 "loop": 1,
 "name": &"idle",
@@ -65,21 +62,24 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cuvig")
+"texture": SubResource("AtlasTexture_auhk1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kd4ps")
+"texture": SubResource("AtlasTexture_8kq83")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pv8n8")
+"texture": SubResource("AtlasTexture_7l2q0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yyjpl")
+"texture": SubResource("AtlasTexture_jitji")
 }],
 "loop": 1,
 "name": &"walk",
-"speed": 8.0
+"speed": 4.0
 }]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4xisj"]
+load_path = "res://.godot/imported/reactions.png-7ffe17f6f310c9c245785ee78bd6cc40.ctex"
 
 [sub_resource type="Animation" id="Animation_cuvig"]
 length = 0.001
@@ -212,70 +212,61 @@ tracks/2/keys = {
 "values": [Vector2(0, -7), Vector2(0, -16), Vector2(0, -18)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pv8n8"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rofe5"]
 _data = {
 &"RESET": SubResource("Animation_cuvig"),
 &"gather": SubResource("Animation_kd4ps"),
 &"think": SubResource("Animation_t6lr1")
 }
 
-[node name="Peebo" type="Node2D" unique_id=1909284323 node_paths=PackedStringArray("brain", "visuals", "actions", "sprite")]
-script = ExtResource("1_x8uct")
-MAX_CHILDREN = 2
-brain = NodePath("PeeboBrain")
-visuals = NodePath("PeeboVisuals")
-actions = NodePath("PeeboActions")
+[node name="Wungus" type="Node2D" unique_id=1690893319 node_paths=PackedStringArray("brain", "visuals", "actions", "sprite")]
+script = ExtResource("1_cnqsw")
+MAX_HUNGER = 100
+MAX_THIRST = 100
+brain = NodePath("WungusBrain")
+visuals = NodePath("WungusVisuals")
+actions = NodePath("WungusActions")
 sprite = NodePath("AnimatedSprite2D")
-creature_to_prey = ExtResource("2_5qi01")
+creature_to_prey = ExtResource("2_4xisj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1638064764]
-material = SubResource("ShaderMaterial_vte7y")
-instance_shader_parameters/enabled = false
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=796682647]
+material = SubResource("ShaderMaterial_4xisj")
 sprite_frames = SubResource("SpriteFrames_cdpwx")
-animation = &"idle"
-offset = Vector2(0, -6)
+animation = &"walk"
 
-[node name="PeeboBrain" type="Node" parent="." unique_id=1649511547 node_paths=PackedStringArray("creature")]
-script = ExtResource("3_4i7lc")
+[node name="WungusBrain" type="Node" parent="." unique_id=1052636823 node_paths=PackedStringArray("creature")]
+script = ExtResource("3_4xisj")
 creature = NodePath("..")
-metadata/_custom_type_script = "uid://dkh5dsdy6evtu"
+metadata/_custom_type_script = "uid://bpuchtsa6qa6u"
 
-[node name="PeeboVisuals" type="Node" parent="." unique_id=1024419272 node_paths=PackedStringArray("creature", "sprite", "reaction_sprite", "animation_player")]
-script = ExtResource("5_v4adu")
+[node name="WungusVisuals" type="Node" parent="." unique_id=1790677741 node_paths=PackedStringArray("creature", "sprite", "reaction_sprite", "animation_player")]
+script = ExtResource("4_rofe5")
 creature = NodePath("..")
 sprite = NodePath("../AnimatedSprite2D")
 reaction_sprite = NodePath("../ReactionSprite")
 animation_player = NodePath("../AnimationPlayer")
-metadata/_custom_type_script = "uid://dbetoo8hrv0mk"
+metadata/_custom_type_script = "uid://8wjb7qm1dbvt"
 
-[node name="PeeboActions" type="Node" parent="." unique_id=1034052593]
-script = ExtResource("4_4i7lc")
-metadata/_custom_type_script = "uid://d3goa3ob6r3cf"
+[node name="WungusActions" type="Node" parent="." unique_id=666541161]
+script = ExtResource("5_8a4bc")
+metadata/_custom_type_script = "uid://dynd3ptfwhd71"
 
-[node name="DrinkAction" type="Node" parent="PeeboActions" unique_id=589834168]
-script = ExtResource("5_llx2r")
-metadata/_custom_type_script = "uid://b0h1u36yi0hwj"
-
-[node name="EatAction" type="Node" parent="PeeboActions" unique_id=217681033]
-script = ExtResource("6_vte7y")
-metadata/_custom_type_script = "uid://ddo6lgmyapbry"
-
-[node name="WanderAction" type="Node" parent="PeeboActions" unique_id=449526862]
-script = ExtResource("7_xr2y1")
-metadata/_custom_type_script = "uid://cu5parjmby832"
-
-[node name="ReproduceAction" type="Node" parent="PeeboActions" unique_id=1083489350]
-script = ExtResource("8_vte7y")
-metadata/_custom_type_script = "uid://bhvuqyfbvo6o3"
-
-[node name="HuntAction" type="Node" parent="PeeboActions" unique_id=1065188836]
-script = ExtResource("12_vqlfs")
+[node name="HuntAction" type="Node" parent="WungusActions" unique_id=1384193130]
+script = ExtResource("6_ppnxs")
 metadata/_custom_type_script = "uid://byvck7jtltc37"
 
-[node name="ReactionSprite" type="Sprite2D" parent="." unique_id=1666792815]
+[node name="ReproduceAction" type="Node" parent="WungusActions" unique_id=1281025796]
+script = ExtResource("7_biebk")
+metadata/_custom_type_script = "uid://bhvuqyfbvo6o3"
+
+[node name="WanderAction" type="Node" parent="WungusActions" unique_id=362946380]
+script = ExtResource("8_3caqu")
+metadata/_custom_type_script = "uid://cu5parjmby832"
+
+[node name="ReactionSprite" type="Sprite2D" parent="." unique_id=560296995]
 position = Vector2(0, -7)
-texture = ExtResource("11_t6lr1")
+texture = SubResource("CompressedTexture2D_4xisj")
 hframes = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=853288181]
-libraries/ = SubResource("AnimationLibrary_pv8n8")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2015828397]
+libraries/ = SubResource("AnimationLibrary_rofe5")

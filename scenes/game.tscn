@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://brai7b5a4tcy8"]
+
+[ext_resource type="Script" uid="uid://kyslgdeclq0i" path="res://scripts/map/map_gen.gd" id="1_dinhu"]
+[ext_resource type="Texture2D" uid="uid://bvwjpifdk74fv" path="res://resources/new_noise_texture_2d.tres" id="2_kvuet"]
+[ext_resource type="PackedScene" uid="uid://cid6tt230d2uk" path="res://scenes/fruit_bush.tscn" id="3_trtic"]
+[ext_resource type="Texture2D" uid="uid://caweqsw1nqkq5" path="res://sprites/new_world_tileset.png" id="4_ir15t"]
+[ext_resource type="Script" uid="uid://b2rgsfgaonm0h" path="res://scripts/map/creature_instanciator.gd" id="5_ca42v"]
+[ext_resource type="PackedScene" uid="uid://btarjbioihsjj" path="res://scenes/peepo/peebo.tscn" id="6_rysoc"]
+[ext_resource type="PackedScene" uid="uid://cqvxa7xr6tjiv" path="res://scenes/mimo/mimo.tscn" id="7_ssvqc"]
+[ext_resource type="PackedScene" uid="uid://b2hnck4wyd013" path="res://scenes/wungus/wungus.tscn" id="8_264po"]
+[ext_resource type="PackedScene" uid="uid://02wqt3m18nua" path="res://scenes/peepo/peebo_egg.tscn" id="9_1kice"]
+[ext_resource type="Script" uid="uid://bl48wc50s10dw" path="res://scripts/camera_2d.gd" id="10_5newe"]
+[ext_resource type="Script" uid="uid://c1jjxqfj0tid8" path="res://scripts/focus_requester.gd" id="11_37s47"]
+[ext_resource type="PackedScene" uid="uid://bxr6ekishyxbt" path="res://scenes/UI/stats_pop_up.tscn" id="12_bt5mj"]
+[ext_resource type="PackedScene" uid="uid://dvsgt5sb3dtm" path="res://scenes/UI/creature_count_ui.tscn" id="13_kvuet"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yn7vm"]
+noise_type = 3
+frequency = 0.35
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wikph"]
+noise = SubResource("FastNoiseLite_yn7vm")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yn7vm"]
+texture = ExtResource("4_ir15t")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cdpwx"]
+sources/0 = SubResource("TileSetAtlasSource_yn7vm")
+
+[node name="Game" type="Node2D" unique_id=1262778181]
+
+[node name="MapGen" type="Node2D" parent="." unique_id=5671555]
+y_sort_enabled = true
+script = ExtResource("1_dinhu")
+main_noise_texture = ExtResource("2_kvuet")
+bush_noise_texture = SubResource("NoiseTexture2D_wikph")
+bush_scene = ExtResource("3_trtic")
+
+[node name="TileMapLayerGround" type="TileMapLayer" parent="MapGen" unique_id=1731626030]
+z_index = -1
+tile_set = SubResource("TileSet_cdpwx")
+
+[node name="CreatureInstanciator" type="Node2D" parent="." unique_id=28809032]
+y_sort_enabled = true
+script = ExtResource("5_ca42v")
+peebo_start_amount = 100
+mimo_start_amount = 150
+wungus_start_amount = 50
+peebo_scene = ExtResource("6_rysoc")
+mimo_scene = ExtResource("7_ssvqc")
+wungus_scene = ExtResource("8_264po")
+egg_scene = ExtResource("9_1kice")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2102604802 node_paths=PackedStringArray("focus_requester")]
+script = ExtResource("10_5newe")
+focus_requester = NodePath("FocusRequester")
+
+[node name="FocusRequester" type="Node2D" parent="Camera2D" unique_id=1305216130]
+script = ExtResource("11_37s47")
+
+[node name="StatsPopUp" parent="." unique_id=43188426 node_paths=PackedStringArray("camera") instance=ExtResource("12_bt5mj")]
+camera = NodePath("../Camera2D")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1373649468]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1769121335]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 32.0
+offset_right = -42.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CreatureCount" parent="CanvasLayer/Control" unique_id=123356830 instance=ExtResource("13_kvuet")]
+layout_mode = 1
+offset_bottom = 92.0

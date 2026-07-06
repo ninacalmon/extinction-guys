@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dvsgt5sb3dtm"]
+
+[ext_resource type="Theme" uid="uid://clellqjdv8587" path="res://resources/default.tres" id="1_ic3pf"]
+[ext_resource type="Script" uid="uid://cpewrtl55ccmh" path="res://scripts/ui/creature_count_ui.gd" id="2_21gtf"]
+
+[node name="CreatureCount" type="VBoxContainer" unique_id=2083667652]
+offset_right = 224.0
+offset_bottom = 104.0
+mouse_filter = 2
+script = ExtResource("2_21gtf")
+peebo_text_color = Color(0.95, 0.944775, 0.63649994, 1)
+mimo_text_color = Color(0.54901963, 0.34117648, 0.49019608, 1)
+wungus_text_color = Color(0.32941177, 0.47058824, 0.67058825, 1)
+
+[node name="RichTextLabelTitle" type="RichTextLabel" parent="." unique_id=489467597]
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("1_ic3pf")
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[wave amp=12 freq=4][b]CREATURE COUNT[/b][/wave]
+"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1509882234]
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("1_ic3pf")
+theme_override_constants/shadow_outline_size = 6
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "Peebos: [b]10[/b]
+Mimos: [b]10[/b]
+Wungi: [b]10[/b]
+"
+fit_content = true
+horizontal_alignment = 3

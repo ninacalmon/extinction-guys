@@ -21,6 +21,7 @@ Globals="*uid://q4w1q1ibqwna"
 TimeManager="*uid://crtb1r8cj3w18"
 ActionTypes="*uid://cq1xob1ef3rph"
 EventBus="*uid://bdlyctppp4mac"
+StatsManager="*uid://bwwwjt3hx4hka"
 
 [display]
 

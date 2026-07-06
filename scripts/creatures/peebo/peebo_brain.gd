@@ -17,7 +17,7 @@ func think() -> Array[ActionTypes.ActionType]:
 	if creature.can_reproduce():
 		priorities.append(ActionTypes.ActionType.REPRODUCE)
 
-	if randi_range(1, 2) == 1:
+	if randi_range(1, 4) >= 2:
 		priorities.append(ActionTypes.ActionType.WANDER)
 
 	return priorities

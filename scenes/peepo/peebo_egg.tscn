@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://02wqt3m18nua"]
 
-[ext_resource type="Script" uid="uid://m7c76l2vh1qj" path="res://scripts/peebo/peebo_egg.gd" id="1_jgnvw"]
+[ext_resource type="Script" uid="uid://m7c76l2vh1qj" path="res://scripts/creatures/peebo/peebo_egg.gd" id="1_jgnvw"]
 [ext_resource type="Texture2D" uid="uid://bdd0yha2s6nd4" path="res://sprites/Egg_item.png" id="2_3ns84"]
 
 [sub_resource type="Animation" id="Animation_2qbtx"]
@@ -9,7 +9,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 4
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),

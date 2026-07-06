@@ -1,34 +1,33 @@
 extends Creature
-class_name Peebo
+class_name Wungus
+
 
 func _ready() -> void:
-	my_name = Globals.names.pick_random()
+	super()
 
-	sex = [SexType.F, SexType.M].pick_random()
-	visuals.set_up_sprite(sex)
-
-	TimeManager.turn_passed.connect(_on_turn)
-
+	TimeManager.double_turn_passed.connect(_on_turn)
 
 var is_focused: bool = false:
 	set(value):
 		visuals.is_focused = value
 
 
-func eat(pos: Vector2i):
-	visuals.eat_anim(pos)
-	hunger = floor(hunger * 0.3)
+#func eat(pos: Vector2i):
+	#visuals.eat_anim(pos)
+	##tween.tween_property(sprite, "self_modulate", Color.RED, 0.5)
+	#hunger = 0
 
 
-func drink(pos: Vector2i):
-	visuals.drink_anim(pos)
-	thirst = floor(thirst * 0.3)
+#func drink(pos: Vector2i):
+	#visuals.drink_anim(pos)
+	#thirst = 0
 
 func prey(pos: Vector2i):
 	visuals.prey(pos)
-	had_child = false
+	child_count = 0
 	hunger = 0
 	thirst = 0
+
 
 func move_to(next: Vector2i):
 	var old_pos = tile_pos
@@ -49,9 +48,10 @@ func move_to(next: Vector2i):
 
 
 func can_reproduce() -> bool:
-	return age >= MAX_AGE / 10.0 and !had_child
+	return child_count < MAX_CHILDREN and \
+	age > MAX_AGE * 0.1
 
-func can_reproduce_with(other: Peebo) -> bool:
+func can_reproduce_with(other: Wungus) -> bool:
 	if !can_reproduce():
 		return false
 
@@ -60,18 +60,22 @@ func can_reproduce_with(other: Peebo) -> bool:
 
 	if sex == other.sex:
 		return false
-	
+
 	# more rules...
 
 	return true
 
-func reproduce(partner: Peebo):
+func reproduce(partner: Wungus):
+	child_count += 1
+
 	visuals.reproduce()
 
 	partner.visuals.reproduce()
 
-	Globals.peebo_instanciator.create_new_egg(tile_pos + Vector2i(0, 1))
-	had_child = true
+	var offset: Vector2i = Globals.get_valid_directions(tile_pos).pick_random()
+	Globals.creature_instanciator.current_creature = Globals.creature_instanciator.wungus_scene
+	Globals.creature_instanciator.create_new_creature(tile_pos + offset)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

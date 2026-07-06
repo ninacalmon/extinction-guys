@@ -1,6 +1,8 @@
-extends Control
+extends Node2D
 
 @onready var rich_text_label: RichTextLabel = $RichTextLabel
+
+@export var camera: Camera2D
 
 var entity: Creature = null
 

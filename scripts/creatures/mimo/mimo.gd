@@ -1,11 +1,9 @@
 extends Creature
 class_name Mimo
 
-var child_count: int = 0
-const MAX_CHILDREN: int = 2
 
 func _ready() -> void:
-	my_name = Globals.names.pick_random()
+	super()
 
 	TimeManager.half_turn_passed.connect(_on_turn)
 
@@ -47,13 +45,17 @@ func can_reproduce() -> bool:
 	return child_count < MAX_CHILDREN and \
 	age > MAX_AGE * 0.1
 
+
 func can_reproduce_with(other: Mimo) -> bool:
 	if !can_reproduce():
 		return false
 
 	if !other.can_reproduce():
 		return false
-	
+
+	#if sex == other.sex:
+		#return false
+
 	# more rules...
 
 	return true
@@ -66,8 +68,8 @@ func reproduce(partner: Mimo):
 	partner.visuals.reproduce()
 
 	var offset: Vector2i = Globals.get_valid_directions(tile_pos).pick_random()
-	Globals.mimo_instanciator.create_new_mimo(tile_pos + offset)
-	had_child = true
+	Globals.creature_instanciator.current_creature = Globals.creature_instanciator.mimo_scene
+	Globals.creature_instanciator.create_new_creature(tile_pos + offset)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

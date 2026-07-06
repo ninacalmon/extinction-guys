@@ -3,14 +3,11 @@
 [ext_resource type="Theme" uid="uid://clellqjdv8587" path="res://resources/default.tres" id="1_1p7x6"]
 [ext_resource type="Script" uid="uid://bdyk0l13enl6h" path="res://scripts/stats_pop_up.gd" id="1_htsoe"]
 
-[node name="StatsPopUp" type="Control" unique_id=43188426]
-layout_mode = 3
-anchors_preset = 0
+[node name="StatsPopUp" type="Node2D" unique_id=256772998]
 script = ExtResource("1_htsoe")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1355567244]
 clip_contents = false
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
