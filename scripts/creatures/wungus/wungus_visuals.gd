@@ -73,8 +73,6 @@ func reproduce():
 
 	reaction_sprite.hide()
 
-func die():
-	pass
 
 func set_up_sprite(sex: Peebo.SexType):
 	sprite.flip_h = randi_range(0, 1)

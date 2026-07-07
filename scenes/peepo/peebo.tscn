@@ -219,6 +219,32 @@ _data = {
 &"think": SubResource("Animation_t6lr1")
 }
 
+[sub_resource type="Curve" id="Curve_u0ka6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751773, 1), 0.0, 0.0, 0, 0, Vector2(0.9964539, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5604n"]
+curve = SubResource("Curve_u0ka6")
+
+[sub_resource type="Curve" id="Curve_vqlfs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6347518, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.48113203), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ksdio"]
+curve = SubResource("Curve_vqlfs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cdpwx"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+angular_velocity_min = -720.0
+angular_velocity_max = 719.99994
+gravity = Vector3(0, 40, 0)
+scale_curve = SubResource("CurveTexture_ksdio")
+color = Color(0.75, 0.0975, 0.2280002, 1)
+alpha_curve = SubResource("CurveTexture_5604n")
+
 [node name="Peebo" type="Node2D" unique_id=1909284323 node_paths=PackedStringArray("brain", "visuals", "actions", "sprite")]
 script = ExtResource("1_x8uct")
 MAX_CHILDREN = 2
@@ -240,8 +266,9 @@ script = ExtResource("3_4i7lc")
 creature = NodePath("..")
 metadata/_custom_type_script = "uid://dkh5dsdy6evtu"
 
-[node name="PeeboVisuals" type="Node" parent="." unique_id=1024419272 node_paths=PackedStringArray("creature", "sprite", "reaction_sprite", "animation_player")]
+[node name="PeeboVisuals" type="Node" parent="." unique_id=1024419272 node_paths=PackedStringArray("blood_gpu_particles", "creature", "sprite", "reaction_sprite", "animation_player")]
 script = ExtResource("5_v4adu")
+blood_gpu_particles = NodePath("../BloodGPUParticles")
 creature = NodePath("..")
 sprite = NodePath("../AnimatedSprite2D")
 reaction_sprite = NodePath("../ReactionSprite")
@@ -273,9 +300,19 @@ script = ExtResource("12_vqlfs")
 metadata/_custom_type_script = "uid://byvck7jtltc37"
 
 [node name="ReactionSprite" type="Sprite2D" parent="." unique_id=1666792815]
+visible = false
 position = Vector2(0, -7)
 texture = ExtResource("11_t6lr1")
 hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=853288181]
 libraries/ = SubResource("AnimationLibrary_pv8n8")
+
+[node name="BloodGPUParticles" type="GPUParticles2D" parent="." unique_id=808560482]
+position = Vector2(-1, -7)
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_cdpwx")

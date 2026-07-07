@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dvsgt5sb3dtm" path="res://scenes/UI/creature_count_ui.tscn" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b2abpb3xwddv5" path="res://scenes/UI/day_count_ui.tscn" id="14_trtic"]
 [ext_resource type="PackedScene" uid="uid://bvth8e130vwix" path="res://scenes/UI/effects_list.tscn" id="15_ir15t"]
-[ext_resource type="Shader" uid="uid://cd8mhcs0qu5k4" path="res://scenes/game.gdshader" id="17_rysoc"]
+[ext_resource type="Shader" uid="uid://cd8mhcs0qu5k4" path="res://resources/radial_blur.gdshader" id="17_rysoc"]
 [ext_resource type="PackedScene" uid="uid://b05pqxv72estx" path="res://scenes/UI/time_buttons.tscn" id="18_ssvqc"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yn7vm"]
@@ -60,6 +60,39 @@ shader_parameter/radius = 0.45
 shader_parameter/softness = 0.525
 shader_parameter/strength = 0.043
 
+[sub_resource type="Gradient" id="Gradient_ssvqc"]
+offsets = PackedFloat32Array(0, 0.1953125, 0.69140625, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5604n"]
+gradient = SubResource("Gradient_ssvqc")
+
+[sub_resource type="Curve" id="Curve_264po"]
+_data = [Vector2(1e-05, 0.5094339), 0.0, 0.0, 0, 0, Vector2(0.20212767, 1), 0.0, 0.0, 0, 0, Vector2(0.7446809, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ksdio"]
+curve = SubResource("Curve_264po")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cdpwx"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 350, 1)
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -20.000002
+linear_accel_max = 19.999998
+radial_accel_min = -20.000002
+radial_accel_max = 19.999998
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 14.999997
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_ksdio")
+color = Color(1, 1, 1, 0.28235295)
+color_ramp = SubResource("GradientTexture1D_5604n")
+
 [node name="Game" type="Node2D" unique_id=1262778181]
 y_sort_enabled = true
 
@@ -99,13 +132,14 @@ camera = NodePath("../Camera2D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1373649468]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1955723599]
+[node name="BlurRect" type="ColorRect" parent="CanvasLayer" unique_id=1955723599]
 material = SubResource("ShaderMaterial_cdpwx")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1769121335]
 layout_mode = 3
@@ -150,3 +184,9 @@ offset_top = 75.0
 offset_right = 57.0
 offset_bottom = 91.0
 grow_horizontal = 0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=9997074]
+position = Vector2(-4, 34)
+amount = 300
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_cdpwx")

@@ -24,8 +24,6 @@ func drink_anim(_pos: Vector2i):
 func reproduce():
 	pass
 
-func die():
-	pass
 
 func set_up_sprite(_sex: Peebo.SexType):
 	sprite.flip_h = randi_range(0, 1)

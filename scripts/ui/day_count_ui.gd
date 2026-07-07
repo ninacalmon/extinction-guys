@@ -13,5 +13,12 @@ func update_text():
 	if StatsManager.day < 10:
 		day = "0%d" %StatsManager.day
 
-	rich_text_label.text = \
-"[b][pulse freq=1.0 color=#ffffff40 ease=10.0]%s[/pulse][/b]" %[day]
+	animate_pulse()
+	rich_text_label.text = "[b]%s[/b]" %[day]
+
+func animate_pulse():
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+
+	tween.tween_property(rich_text_label, "modulate", Color.WHITE, TimeManager.current_turn_speed * 0.5)\
+	.from(Color(0.2, 0.129, 0.149, 1.0))

@@ -6,7 +6,7 @@ func execute(creature: Creature) -> bool:
 
 	for prey in neighboring_preys:
 		if is_instance_valid(prey):
-			prey.die()
+			prey.die(true)
 			creature.prey(prey.tile_pos)
 			return true
 

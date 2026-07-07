@@ -40,6 +40,8 @@ func _ready() -> void:
 
 
 func _on_turn():
+	if is_dead: return
+
 	update_stats()
 
 	if is_overpopulated():
@@ -69,14 +71,14 @@ func should_die() -> bool:
 	return age >= MAX_AGE or hunger >= MAX_HUNGER or thirst >= MAX_THIRST
 
 
-func die():
+func die(bleed: bool = false):
 	if is_dead:
 		return
 
 	is_dead = true
 	Globals.remove_entity(tile_pos)
 
-	await visuals.die()
+	await visuals.die(bleed)
 
 	EventBus.died.emit(self)
 	queue_free()

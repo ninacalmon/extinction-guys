@@ -2,36 +2,64 @@
 
 [ext_resource type="Script" uid="uid://cfj8yd6aw4vbh" path="res://scripts/ui/time_buttons.gd" id="1_ov0b7"]
 [ext_resource type="Texture2D" uid="uid://cofldksa6yair" path="res://sprites/ui/time_buttons.png" id="2_5co1l"]
+[ext_resource type="Shader" uid="uid://djxddseiw1s4k" path="res://resources/outline_shadow.gdshader" id="2_k768l"]
+[ext_resource type="Texture2D" uid="uid://di888m78f8uhv" path="res://sprites/ui/time_buttons_pressed.png" id="4_k768l"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cdpwx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0t77s"]
+shader = ExtResource("2_k768l")
+shader_parameter/outline_color = Color(0.2, 0.12941177, 0.14901961, 1)
+shader_parameter/outline_size = 0.915
+shader_parameter/shadow_color = Color(0.2, 0.12941177, 0.14901961, 1)
+shader_parameter/shadow_offset = Vector2(0, 0)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_k768l"]
+allow_unpress = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4max"]
 atlas = ExtResource("2_5co1l")
-region = Rect2(0, 0, 5, 0)
+region = Rect2(0, 0, 7, 0)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k768l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k768l"]
+atlas = ExtResource("4_k768l")
+region = Rect2(0, 0, 7, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_by64w"]
 atlas = ExtResource("2_5co1l")
-region = Rect2(16, 0, 5, 0)
+region = Rect2(16, 0, 7, 0)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d0wjn"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_by64w"]
+load_path = "res://.godot/imported/time_buttons_pressed.png-ff33d3ed234bfb1875ba5916b5546493.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0wjn"]
+atlas = SubResource("CompressedTexture2D_by64w")
+region = Rect2(16, 0, 7, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jrlm"]
 atlas = ExtResource("2_5co1l")
-region = Rect2(32, 0, 5, 0)
+region = Rect2(32, 0, 7, 0)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0xx7f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xx7f"]
+atlas = ExtResource("4_k768l")
+region = Rect2(32, 0, 7, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_888h3"]
 atlas = ExtResource("2_5co1l")
-region = Rect2(48, 0, 5, 0)
+region = Rect2(48, 0, 9, 0)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4v2y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v2y"]
+atlas = ExtResource("4_k768l")
+region = Rect2(48, 0, 9, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_333yd"]
 atlas = ExtResource("2_5co1l")
-region = Rect2(64, 0, 8, 0)
+region = Rect2(64, 0, 12, 0)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_333yd"]
+load_path = "res://.godot/imported/time_buttons_pressed.png-ff33d3ed234bfb1875ba5916b5546493.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5xuh"]
+atlas = SubResource("CompressedTexture2D_333yd")
+region = Rect2(64, 0, 12, 0)
 
 [node name="TimeButtons" type="HBoxContainer" unique_id=1735750415 node_paths=PackedStringArray("buttons_array")]
 offset_right = 40.0
@@ -41,36 +69,52 @@ script = ExtResource("1_ov0b7")
 buttons_array = [NodePath("Slow"), NodePath("Pause"), NodePath("Default"), NodePath("Fast"), NodePath("SuperFast")]
 
 [node name="Slow" type="TextureButton" parent="." unique_id=1317382122]
-material = SubResource("CanvasItemMaterial_cdpwx")
+material = SubResource("ShaderMaterial_0t77s")
 custom_minimum_size = Vector2(64, 16)
 layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k768l")
 texture_normal = SubResource("AtlasTexture_b4max")
+texture_pressed = SubResource("AtlasTexture_k768l")
 stretch_mode = 4
 
 [node name="Pause" type="TextureButton" parent="." unique_id=885134838]
-material = SubResource("CanvasItemMaterial_k768l")
+material = SubResource("ShaderMaterial_0t77s")
 custom_minimum_size = Vector2(64, 16)
 layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k768l")
 texture_normal = SubResource("AtlasTexture_by64w")
+texture_pressed = SubResource("AtlasTexture_d0wjn")
 stretch_mode = 4
 
 [node name="Default" type="TextureButton" parent="." unique_id=2143744706]
-material = SubResource("CanvasItemMaterial_d0wjn")
+material = SubResource("ShaderMaterial_0t77s")
 custom_minimum_size = Vector2(64, 16)
 layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_k768l")
 texture_normal = SubResource("AtlasTexture_6jrlm")
+texture_pressed = SubResource("AtlasTexture_0xx7f")
 stretch_mode = 4
 
 [node name="Fast" type="TextureButton" parent="." unique_id=1127894998]
-material = SubResource("CanvasItemMaterial_0xx7f")
+material = SubResource("ShaderMaterial_0t77s")
 custom_minimum_size = Vector2(64, 16)
 layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k768l")
 texture_normal = SubResource("AtlasTexture_888h3")
+texture_pressed = SubResource("AtlasTexture_g4v2y")
 stretch_mode = 4
 
 [node name="SuperFast" type="TextureButton" parent="." unique_id=1858540327]
-material = SubResource("CanvasItemMaterial_g4v2y")
+material = SubResource("ShaderMaterial_0t77s")
 custom_minimum_size = Vector2(64, 16)
 layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_k768l")
 texture_normal = SubResource("AtlasTexture_333yd")
+texture_pressed = SubResource("AtlasTexture_j5xuh")
 stretch_mode = 4

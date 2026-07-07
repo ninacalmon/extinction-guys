@@ -5,6 +5,7 @@ enum States { DEFAULT, FOCUSED }
 
 var current_state: States = States.DEFAULT
 
+
 func _ready() -> void:
 	reaction_sprite.hide()
 
@@ -73,16 +74,15 @@ func reproduce():
 
 	reaction_sprite.hide()
 
-func die():
-	pass
+
 
 func set_up_sprite(sex: Peebo.SexType):
 	sprite.flip_h = randi_range(0, 1)
 	sprite.play("idle")
 
-	match sex:
-		Peebo.SexType.F: sprite.modulate = Color(1.0, 0.6, 0.8)
-		Peebo.SexType.M: sprite.modulate = Color(0.6, 0.7, 1.0)
+	#match sex:
+		#Peebo.SexType.F: sprite.modulate = Color(1.0, 0.6, 0.8)
+		#Peebo.SexType.M: sprite.modulate = Color(0.6, 0.7, 1.0)
 
 func _process(_delta: float) -> void:
 	if current_state == States.DEFAULT:

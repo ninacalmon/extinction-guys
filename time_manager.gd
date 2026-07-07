@@ -13,7 +13,7 @@ var original_turn_wait_time: float
 
 var current_turn_speed: float
 
-enum TurnSpeeds {DEFAULT, SLOW, FAST, SUPER_FAST}
+enum TurnSpeeds {DEFAULT, SLOW, FAST, SUPER_FAST, PAUSED}
 
 func _ready() -> void:
 	original_turn_wait_time = turn_timer.wait_time
@@ -43,6 +43,13 @@ func on_double_turn_timeout():
 	double_turn_timer.start()
 
 func alter_time(new_speed: TurnSpeeds):
+	turn_timer.stop()
+	half_turn_timer.stop()
+	double_turn_timer.stop()
+
+	if new_speed == TurnSpeeds.PAUSED:
+		return
+
 	match new_speed:
 		TurnSpeeds.DEFAULT:
 			var new_speed_wait_time: float = original_turn_wait_time
@@ -50,6 +57,7 @@ func alter_time(new_speed: TurnSpeeds):
 			turn_timer.wait_time = new_speed_wait_time
 			half_turn_timer.wait_time = new_speed_wait_time * 0.5
 			double_turn_timer.wait_time = new_speed_wait_time * 2.0
+
 
 		TurnSpeeds.SLOW:
 			var new_speed_wait_time: float = original_turn_wait_time * 5
@@ -71,3 +79,7 @@ func alter_time(new_speed: TurnSpeeds):
 			turn_timer.wait_time = new_speed_wait_time
 			half_turn_timer.wait_time = new_speed_wait_time * 0.5
 			double_turn_timer.wait_time = new_speed_wait_time * 2.0
+
+	turn_timer.start()
+	half_turn_timer.start()
+	double_turn_timer.start()
