@@ -56,12 +56,13 @@ _data = {
 }
 
 [node name="PeeboEgg" type="Node2D" unique_id=1948286489]
+y_sort_enabled = true
 script = ExtResource("1_jgnvw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1721095879]
 y_sort_enabled = true
 texture = ExtResource("2_3ns84")
-offset = Vector2(0, -6)
+offset = Vector2(0, -5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1287531588]
 libraries/ = SubResource("AnimationLibrary_oeje8")

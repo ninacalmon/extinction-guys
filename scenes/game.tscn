@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://kyslgdeclq0i" path="res://scripts/map/map_gen.gd" id="1_dinhu"]
 [ext_resource type="Texture2D" uid="uid://bvwjpifdk74fv" path="res://resources/new_noise_texture_2d.tres" id="2_kvuet"]
 [ext_resource type="PackedScene" uid="uid://cid6tt230d2uk" path="res://scenes/fruit_bush.tscn" id="3_trtic"]
+[ext_resource type="PackedScene" uid="uid://cqmm6jtmfd6lf" path="res://scenes/fence.tscn" id="4_ca42v"]
 [ext_resource type="Texture2D" uid="uid://caweqsw1nqkq5" path="res://sprites/new_world_tileset.png" id="4_ir15t"]
 [ext_resource type="Script" uid="uid://b2rgsfgaonm0h" path="res://scripts/map/creature_instanciator.gd" id="5_ca42v"]
 [ext_resource type="PackedScene" uid="uid://btarjbioihsjj" path="res://scenes/peepo/peebo.tscn" id="6_rysoc"]
@@ -15,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dvsgt5sb3dtm" path="res://scenes/UI/creature_count_ui.tscn" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b2abpb3xwddv5" path="res://scenes/UI/day_count_ui.tscn" id="14_trtic"]
 [ext_resource type="PackedScene" uid="uid://bvth8e130vwix" path="res://scenes/UI/effects_list.tscn" id="15_ir15t"]
+[ext_resource type="Shader" uid="uid://cd8mhcs0qu5k4" path="res://scenes/game.gdshader" id="17_rysoc"]
+[ext_resource type="PackedScene" uid="uid://b05pqxv72estx" path="res://scenes/UI/time_buttons.tscn" id="18_ssvqc"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yn7vm"]
 noise_type = 3
@@ -50,7 +53,15 @@ texture = ExtResource("4_ir15t")
 [sub_resource type="TileSet" id="TileSet_cdpwx"]
 sources/0 = SubResource("TileSetAtlasSource_yn7vm")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdpwx"]
+shader = ExtResource("17_rysoc")
+shader_parameter/center = Vector2(0.5, 0.45)
+shader_parameter/radius = 0.45
+shader_parameter/softness = 0.525
+shader_parameter/strength = 0.043
+
 [node name="Game" type="Node2D" unique_id=1262778181]
+y_sort_enabled = true
 
 [node name="MapGen" type="Node2D" parent="." unique_id=5671555]
 y_sort_enabled = true
@@ -58,6 +69,7 @@ script = ExtResource("1_dinhu")
 main_noise_texture = ExtResource("2_kvuet")
 bush_noise_texture = SubResource("NoiseTexture2D_wikph")
 bush_scene = ExtResource("3_trtic")
+fence_scene = ExtResource("4_ca42v")
 
 [node name="TileMapLayerGround" type="TileMapLayer" parent="MapGen" unique_id=1731626030]
 z_index = -1
@@ -75,7 +87,7 @@ wungus_scene = ExtResource("8_264po")
 egg_scene = ExtResource("9_1kice")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2102604802 node_paths=PackedStringArray("focus_requester")]
-offset = Vector2(0, 32)
+position = Vector2(0, 40)
 script = ExtResource("10_5newe")
 focus_requester = NodePath("FocusRequester")
 
@@ -86,6 +98,14 @@ script = ExtResource("11_37s47")
 camera = NodePath("../Camera2D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1373649468]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1955723599]
+material = SubResource("ShaderMaterial_cdpwx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1769121335]
 layout_mode = 3
@@ -119,3 +139,14 @@ anchors_preset = 7
 anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
+
+[node name="TimeButtons" parent="CanvasLayer/Control" unique_id=1735750415 instance=ExtResource("18_ssvqc")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -103.0
+offset_top = 75.0
+offset_right = 57.0
+offset_bottom = 91.0
+grow_horizontal = 0

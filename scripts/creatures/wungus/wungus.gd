@@ -42,7 +42,7 @@ func move_to(next: Vector2i):
 
 	sprite.play("walk")
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", target, 1.8)
+	tween.tween_property(self, "global_position", target, TimeManager.current_turn_speed * 1.8)
 	await tween.finished
 	sprite.play("idle")
 

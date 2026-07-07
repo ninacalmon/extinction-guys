@@ -233,7 +233,7 @@ material = SubResource("ShaderMaterial_vte7y")
 instance_shader_parameters/enabled = false
 sprite_frames = SubResource("SpriteFrames_cdpwx")
 animation = &"idle"
-offset = Vector2(0, -6)
+offset = Vector2(0, -7)
 
 [node name="PeeboBrain" type="Node" parent="." unique_id=1649511547 node_paths=PackedStringArray("creature")]
 script = ExtResource("3_4i7lc")

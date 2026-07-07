@@ -9,9 +9,9 @@ half_turn_timer = NodePath("HalfTurnTimer")
 double_turn_timer = NodePath("DoubleTurnTimer")
 
 [node name="TurnTimer" type="Timer" parent="." unique_id=152940981]
-
-[node name="HalfTurnTimer" type="Timer" parent="." unique_id=533165943]
 wait_time = 0.5
 
+[node name="HalfTurnTimer" type="Timer" parent="." unique_id=533165943]
+wait_time = 0.25
+
 [node name="DoubleTurnTimer" type="Timer" parent="." unique_id=528208773]
-wait_time = 2.0

@@ -220,6 +220,7 @@ _data = {
 }
 
 [node name="Wungus" type="Node2D" unique_id=1690893319 node_paths=PackedStringArray("brain", "visuals", "actions", "sprite")]
+y_sort_enabled = true
 script = ExtResource("1_cnqsw")
 MAX_HUNGER = 100
 MAX_THIRST = 100
@@ -230,9 +231,11 @@ sprite = NodePath("AnimatedSprite2D")
 creature_to_prey = ExtResource("2_4xisj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=796682647]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_4xisj")
 sprite_frames = SubResource("SpriteFrames_cdpwx")
 animation = &"walk"
+offset = Vector2(0, -6)
 
 [node name="WungusBrain" type="Node" parent="." unique_id=1052636823 node_paths=PackedStringArray("creature")]
 script = ExtResource("3_4xisj")

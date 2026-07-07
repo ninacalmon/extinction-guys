@@ -14,7 +14,6 @@ var is_focused: bool = false:
 
 func eat(pos: Vector2i):
 	visuals.eat_anim(pos)
-	#tween.tween_property(sprite, "self_modulate", Color.RED, 0.5)
 	hunger = 0
 
 
@@ -36,7 +35,7 @@ func move_to(next: Vector2i):
 
 	sprite.play("walk")
 	var tween = create_tween()
-	tween.tween_property(self, "global_position", target, 0.5)
+	tween.tween_property(self, "global_position", target, TimeManager.current_turn_speed * 0.5)
 	await tween.finished
 	sprite.play("idle")
 

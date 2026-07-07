@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://b05pqxv72estx"]
+
+[ext_resource type="Script" uid="uid://cfj8yd6aw4vbh" path="res://scripts/ui/time_buttons.gd" id="1_ov0b7"]
+[ext_resource type="Texture2D" uid="uid://cofldksa6yair" path="res://sprites/ui/time_buttons.png" id="2_5co1l"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cdpwx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4max"]
+atlas = ExtResource("2_5co1l")
+region = Rect2(0, 0, 5, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k768l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by64w"]
+atlas = ExtResource("2_5co1l")
+region = Rect2(16, 0, 5, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d0wjn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jrlm"]
+atlas = ExtResource("2_5co1l")
+region = Rect2(32, 0, 5, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0xx7f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_888h3"]
+atlas = ExtResource("2_5co1l")
+region = Rect2(48, 0, 5, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4v2y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_333yd"]
+atlas = ExtResource("2_5co1l")
+region = Rect2(64, 0, 8, 0)
+
+[node name="TimeButtons" type="HBoxContainer" unique_id=1735750415 node_paths=PackedStringArray("buttons_array")]
+offset_right = 40.0
+offset_bottom = 5.0
+theme_override_constants/separation = -40
+script = ExtResource("1_ov0b7")
+buttons_array = [NodePath("Slow"), NodePath("Pause"), NodePath("Default"), NodePath("Fast"), NodePath("SuperFast")]
+
+[node name="Slow" type="TextureButton" parent="." unique_id=1317382122]
+material = SubResource("CanvasItemMaterial_cdpwx")
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_b4max")
+stretch_mode = 4
+
+[node name="Pause" type="TextureButton" parent="." unique_id=885134838]
+material = SubResource("CanvasItemMaterial_k768l")
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_by64w")
+stretch_mode = 4
+
+[node name="Default" type="TextureButton" parent="." unique_id=2143744706]
+material = SubResource("CanvasItemMaterial_d0wjn")
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_6jrlm")
+stretch_mode = 4
+
+[node name="Fast" type="TextureButton" parent="." unique_id=1127894998]
+material = SubResource("CanvasItemMaterial_0xx7f")
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_888h3")
+stretch_mode = 4
+
+[node name="SuperFast" type="TextureButton" parent="." unique_id=1858540327]
+material = SubResource("CanvasItemMaterial_g4v2y")
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_333yd")
+stretch_mode = 4

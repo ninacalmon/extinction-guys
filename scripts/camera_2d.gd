@@ -18,9 +18,13 @@ var target: Creature = null
 
 var can_zoom_in: bool = false
 
+var initial_pos: Vector2
+
 @export var focus_requester: FocusRequester
 
 func _ready() -> void:
+	initial_pos = global_position
+
 	focus_requester.focus_request.connect(_on_focus_requested)
 
 func _on_focus_requested(entity: Node2D):
@@ -37,7 +41,7 @@ func _process(delta: float) -> void:
 
 	else:
 		target_zoom = default_zoom
-		global_position = global_position.lerp(Vector2.ZERO, move_speed * delta)
+		global_position = global_position.lerp(initial_pos, move_speed * delta)
 
 	can_zoom_in = is_instance_valid(target)
 	zoom = zoom.lerp(target_zoom, zoom_speed * delta)

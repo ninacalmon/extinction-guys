@@ -27,6 +27,7 @@ layout_mode = 2
 
 [node name="EffectButton2" parent="HBoxContainer" unique_id=2099314076 instance=ExtResource("1_gcveg")]
 layout_mode = 2
+my_effect = 1
 
 [node name="EffectButton3" parent="HBoxContainer" unique_id=1570379753 instance=ExtResource("1_gcveg")]
 layout_mode = 2

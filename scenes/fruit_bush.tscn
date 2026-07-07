@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c31ewpbdthwfk" path="res://sprites/bushes.png" id="1_rueg2"]
 
 [node name="FruitBush" type="Node2D" unique_id=427270746]
+y_sort_enabled = true
 script = ExtResource("1_8imxc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=299487045]

@@ -5,6 +5,7 @@ class_name MapGen
 @export var bush_noise_texture: NoiseTexture2D
 
 @export var bush_scene: PackedScene
+@export var fence_scene: PackedScene
 
 
 var width: int
@@ -60,27 +61,59 @@ func _ready() -> void:
 	bush_noise.seed = randi()
 
 	generate_world()
+	generate_fence()
 
 func generate_world() -> void:
-	for x in range(-width * 0.5, width * 0.5):
-		for y in range(-height * 0.5, height * 0.5):
+	var play_left = -width / 2
+	var play_right = width / 2 - 1
+	var play_top = -height / 2
+	var play_bottom = height / 2 - 1
+
+	var world_left = -total_width / 2
+	var world_right = total_width / 2 - 1
+	var world_top = -total_height / 2
+	var world_bottom = total_height / 2 - 1
+
+	for x in range(world_left, world_right + 1):
+		for y in range(world_top, world_bottom + 1):
 
 			var pos := Vector2i(x, y)
-
 			var terrain := main_noise.get_noise_2d(x, y)
 
 			if terrain < -0.25:
-				Globals.set_tile(pos, "water")
 				tile_map_layer_ground.set_cell(pos, source_id, water_atlas.pick_random())
 
 			elif terrain < -0.05:
-				Globals.set_tile(pos, "sand")
 				tile_map_layer_ground.set_cell(pos, source_id, sand_atlas.pick_random())
 
 			else:
+				tile_map_layer_ground.set_cell(
+					pos,
+					source_id,
+					grass_atlas.pick_random()
+				)
+
+			var inside_play_area = (
+				x >= play_left
+				and x <= play_right
+				and y >= play_top
+				and y <= play_bottom
+			)
+
+			if !inside_play_area:
+				continue
+
+			if terrain < -0.25:
+				Globals.set_tile(pos, "water")
+
+			elif terrain < -0.05:
+				Globals.set_tile(pos, "sand")
+
+			else:
+				Globals.set_tile(pos, "grass")
+
 				var bush := bush_noise.get_noise_2d(x, y)
 				if bush > 0.25:
-
 					var bush_instance: FruitBush = bush_scene.instantiate()
 					add_child(bush_instance)
 
@@ -89,13 +122,27 @@ func generate_world() -> void:
 					bush_instance.global_position = tile_to_world(pos)
 					bush_instance.tile_pos = pos
 
-				Globals.set_tile(pos, "grass")
+func generate_fence() -> void:
+	var left = -width / 2 - 1
+	var right = width / 2
+	var top = -height / 2 - 1
+	var bottom = height / 2
 
-				tile_map_layer_ground.set_cell(
-					pos,
-					source_id,
-					grass_atlas.pick_random()
-				)
+	for x in range(left, right + 1):
+		place_fence(Vector2i(x, top))
+		place_fence(Vector2i(x, bottom))
+
+	for y in range(top + 1, bottom):
+		place_fence(Vector2i(left, y))
+		place_fence(Vector2i(right, y))
+
+func place_fence(pos: Vector2i) -> void:
+	var fence: Fence = fence_scene.instantiate()
+
+	fence.global_position = tile_to_world(pos)
+	fence.tile_pos = pos
+
+	add_child(fence)
 
 func tile_to_world(tile: Vector2i) -> Vector2:
 	return tile_map_layer_ground.map_to_local(tile)

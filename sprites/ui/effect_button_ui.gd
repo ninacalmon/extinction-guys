@@ -14,10 +14,11 @@ func _ready() -> void:
 	texture_button.pressed.connect(_on_button_pressed)
 
 
+
 func setup():
 	effect = EffectsManager.effect_map.get(my_effect)
 
-	title.text = effect.title
+	title.text = "[b][wave amp=12 freq=4]%s[/wave][/b]" %effect.title
 
 	texture_button.texture_normal = effect.image
 
