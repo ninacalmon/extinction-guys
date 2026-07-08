@@ -58,9 +58,8 @@ func alter_time(new_speed: TurnSpeeds):
 			half_turn_timer.wait_time = new_speed_wait_time * 0.5
 			double_turn_timer.wait_time = new_speed_wait_time * 2.0
 
-
 		TurnSpeeds.SLOW:
-			var new_speed_wait_time: float = original_turn_wait_time * 5
+			var new_speed_wait_time: float = original_turn_wait_time * 3
 			current_turn_speed = new_speed_wait_time
 			turn_timer.wait_time = new_speed_wait_time
 			half_turn_timer.wait_time = new_speed_wait_time * 0.5

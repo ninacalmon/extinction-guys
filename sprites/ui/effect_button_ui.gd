@@ -34,6 +34,17 @@ func _on_button_pressed():
 		effect.update_price()
 		setup()
 
+	else:
+		shake()
+
+func shake():
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+
+	tween.tween_property(texture_button, "position:x", -8.0, 0.1).from(0.0)
+	tween.tween_property(texture_button, "position:x", 8.0, 0.1)
+	tween.tween_property(texture_button, "position:x", 0.0, 0.1).from(8.0)
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		texture_button.set_instance_shader_parameter("enabled", texture_button.is_hovered())

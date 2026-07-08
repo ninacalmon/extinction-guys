@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://ddo6lgmyapbry" path="res://scripts/actions/eat_action.gd" id="7_n0q0j"]
 [ext_resource type="Script" uid="uid://cu5parjmby832" path="res://scripts/actions/wander_action.gd" id="8_rwwdy"]
 [ext_resource type="Script" uid="uid://bhvuqyfbvo6o3" path="res://scripts/actions/reproduce_action.gd" id="9_n0q0j"]
+[ext_resource type="Texture2D" uid="uid://crrl5dch0y0ws" path="res://sprites/reactions.png" id="10_rwwdy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4lica"]
 atlas = ExtResource("3_rwwdy")
@@ -69,6 +70,144 @@ scale_curve = SubResource("CurveTexture_ksdio")
 color = Color(0.75, 0.0975, 0.2280002, 1)
 alpha_curve = SubResource("CurveTexture_5604n")
 
+[sub_resource type="Animation" id="Animation_cuvig"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReactionSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ReactionSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -7)]
+}
+
+[sub_resource type="Animation" id="Animation_kd4ps"]
+resource_name = "eat"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReactionSprite:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.06981317007977318, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_t6lr1"]
+resource_name = "eat"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReactionSprite:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.36666667, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ReactionSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -7), Vector2(0, -16), Vector2(0, -18)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4lica"]
+_data = {
+&"RESET": SubResource("Animation_cuvig"),
+&"gather": SubResource("Animation_kd4ps"),
+&"think": SubResource("Animation_t6lr1")
+}
+
 [node name="Mimo" type="Node2D" unique_id=1720560750 node_paths=PackedStringArray("brain", "visuals", "actions", "sprite")]
 script = ExtResource("1_k4i4a")
 MAX_HUNGER = 1000
@@ -90,10 +229,12 @@ script = ExtResource("3_oid1s")
 creature = NodePath("..")
 metadata/_custom_type_script = "uid://ctnl52vbt37fw"
 
-[node name="MimoVisuals" type="Node" parent="." unique_id=214374924 node_paths=PackedStringArray("creature", "sprite", "blood_gpu_particles")]
+[node name="MimoVisuals" type="Node" parent="." unique_id=214374924 node_paths=PackedStringArray("creature", "sprite", "reaction_sprite", "animation_player", "blood_gpu_particles")]
 script = ExtResource("4_3gxbi")
 creature = NodePath("..")
 sprite = NodePath("../AnimatedSprite2D")
+reaction_sprite = NodePath("../ReactionSprite")
+animation_player = NodePath("../AnimationPlayer")
 blood_gpu_particles = NodePath("../BloodGPUParticles")
 metadata/_custom_type_script = "uid://8oehekru5cg3"
 
@@ -125,3 +266,12 @@ lifetime = 0.5
 one_shot = true
 explosiveness = 0.8
 process_material = SubResource("ParticleProcessMaterial_4lica")
+
+[node name="ReactionSprite" type="Sprite2D" parent="." unique_id=701783994]
+visible = false
+position = Vector2(0, -7)
+texture = ExtResource("10_rwwdy")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1829796821]
+libraries/ = SubResource("AnimationLibrary_4lica")

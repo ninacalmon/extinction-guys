@@ -80,5 +80,6 @@ func reproduce(partner: Peebo):
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var mouse_world_pos = get_global_mouse_position()
-		var mouse_tile_pos = Globals.map.world_to_tile(mouse_world_pos)
-		is_hovered = tile_pos == mouse_tile_pos
+		if Globals.map:
+			var mouse_tile_pos = Globals.map.world_to_tile(mouse_world_pos)
+			is_hovered = tile_pos == mouse_tile_pos

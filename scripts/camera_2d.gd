@@ -28,8 +28,8 @@ func _ready() -> void:
 	focus_requester.focus_request.connect(_on_focus_requested)
 
 func _on_focus_requested(entity: Node2D):
-	if target:
-		return
+	#if target:
+		#return
 	target = entity
 	target.is_focused = true
 	target_zoom = def_zoom_in

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="extinction bois"
-run/main_scene="uid://brai7b5a4tcy8"
+run/main_scene="uid://cvjylmf0aav4m"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

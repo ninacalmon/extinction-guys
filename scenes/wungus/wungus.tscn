@@ -219,6 +219,32 @@ _data = {
 &"think": SubResource("Animation_t6lr1")
 }
 
+[sub_resource type="Curve" id="Curve_rofe5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751773, 1), 0.0, 0.0, 0, 0, Vector2(0.9964539, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_x0wcn"]
+curve = SubResource("Curve_rofe5")
+
+[sub_resource type="Curve" id="Curve_8a4bc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6347518, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.48113203), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_itr2b"]
+curve = SubResource("Curve_8a4bc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ppnxs"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+angular_velocity_min = -720.0
+angular_velocity_max = 719.99994
+gravity = Vector3(0, 40, 0)
+scale_curve = SubResource("CurveTexture_itr2b")
+color = Color(0.75, 0.0975, 0.2280002, 1)
+alpha_curve = SubResource("CurveTexture_x0wcn")
+
 [node name="Wungus" type="Node2D" unique_id=1690893319 node_paths=PackedStringArray("brain", "visuals", "actions", "sprite")]
 y_sort_enabled = true
 script = ExtResource("1_cnqsw")
@@ -242,12 +268,13 @@ script = ExtResource("3_4xisj")
 creature = NodePath("..")
 metadata/_custom_type_script = "uid://bpuchtsa6qa6u"
 
-[node name="WungusVisuals" type="Node" parent="." unique_id=1790677741 node_paths=PackedStringArray("creature", "sprite", "reaction_sprite", "animation_player")]
+[node name="WungusVisuals" type="Node" parent="." unique_id=1790677741 node_paths=PackedStringArray("creature", "sprite", "reaction_sprite", "animation_player", "blood_gpu_particles")]
 script = ExtResource("4_rofe5")
 creature = NodePath("..")
 sprite = NodePath("../AnimatedSprite2D")
 reaction_sprite = NodePath("../ReactionSprite")
 animation_player = NodePath("../AnimationPlayer")
+blood_gpu_particles = NodePath("../BloodGPUParticles")
 metadata/_custom_type_script = "uid://8wjb7qm1dbvt"
 
 [node name="WungusActions" type="Node" parent="." unique_id=666541161]
@@ -273,3 +300,12 @@ hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2015828397]
 libraries/ = SubResource("AnimationLibrary_rofe5")
+
+[node name="BloodGPUParticles" type="GPUParticles2D" parent="." unique_id=1904459349]
+position = Vector2(-1, -7)
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_ppnxs")

@@ -22,7 +22,14 @@ func drink_anim(_pos: Vector2i):
 	pass
 
 func reproduce():
-	pass
+	reaction_sprite.frame = 2
+	reaction_sprite.show()
+
+	animation_player.play("think")
+
+	await animation_player.animation_finished
+
+	reaction_sprite.hide()
 
 
 func set_up_sprite(_sex: Peebo.SexType):
