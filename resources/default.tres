@@ -2,7 +2,63 @@
 
 [ext_resource type="FontFile" uid="uid://b8avu8dpdlw5g" path="res://resources/PressStart2P.ttf" id="1_i71n2"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i71n2"]
+bg_color = Color(0.55, 0.46200004, 0.47226667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.12941177, 0.14901961, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0.2, 0.12941177, 0.14901961, 1)
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksdio"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.12941177, 0.14901961, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0.2, 0.12941177, 0.14901961, 1)
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vajuw"]
+bg_color = Color(0.46, 0.36217335, 0.3588, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.12941177, 0.14901961, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(0.2, 0.12941177, 0.14901961, 1)
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+
 [resource]
+Button/colors/font_color = Color(0.2, 0.12941177, 0.14901961, 1)
+Button/colors/font_focus_color = Color(0.2, 0.12941177, 0.14901961, 1)
+Button/colors/font_hover_color = Color(0.2, 0.12941177, 0.14901961, 1)
+Button/colors/font_hover_pressed_color = Color(0.2, 0.12941177, 0.14901961, 1)
+Button/colors/font_pressed_color = Color(0.2, 0.12941177, 0.14901961, 1)
+Button/constants/align_to_largest_stylebox = 1
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_i71n2")
+Button/styles/hover = SubResource("StyleBoxFlat_i71n2")
+Button/styles/normal = SubResource("StyleBoxFlat_ksdio")
+Button/styles/pressed = SubResource("StyleBoxFlat_vajuw")
 RichTextLabel/colors/font_outline_color = Color(0.2, 0.12941177, 0.14901961, 1)
 RichTextLabel/colors/font_shadow_color = Color(0.2, 0.13, 0.14866665, 1)
 RichTextLabel/constants/line_separation = 8

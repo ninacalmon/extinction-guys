@@ -12,7 +12,7 @@ func _ready() -> void:
 	setup()
 
 	texture_button.pressed.connect(_on_button_pressed)
-
+	texture_button.mouse_exited.connect(func(): texture_button.button_pressed = false)
 
 
 func setup():

@@ -85,6 +85,12 @@ func is_in_bounds(pos: Vector2i) -> bool:
 		and pos.y < half_height
 	)
 
+#region Colors
+@export_color_no_alpha var peebo_text_color: Color = Color(0.949, 0.945, 0.635)
+@export_color_no_alpha var mimo_text_color: Color = Color(0.549, 0.341, 0.49)
+@export_color_no_alpha var wungus_text_color: Color = Color(0.329, 0.471, 0.671)
+#endregion
+
 #region Names
 var names: Array[String] = [
 	"Bibo",

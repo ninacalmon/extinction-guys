@@ -23,6 +23,7 @@ ActionTypes="*uid://cq1xob1ef3rph"
 EventBus="*uid://bdlyctppp4mac"
 StatsManager="*uid://bwwwjt3hx4hka"
 EffectsManager="*uid://bwpc3hvlsr4jr"
+Bank="*uid://co0gtgdv20x2y"
 
 [display]
 

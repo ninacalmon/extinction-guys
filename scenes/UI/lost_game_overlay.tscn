@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://degmr42qsdj8b"]
+
+[ext_resource type="Script" uid="uid://cgdpvr8f8owkh" path="res://scenes/UI/lost_game_overlay.gd" id="1_58x8j"]
+[ext_resource type="Theme" uid="uid://clellqjdv8587" path="res://resources/default.tres" id="1_o0vpx"]
+[ext_resource type="FontFile" uid="uid://b8avu8dpdlw5g" path="res://resources/PressStart2P.ttf" id="2_58x8j"]
+[ext_resource type="Script" uid="uid://c3wrk32rberug" path="res://scripts/ui/buttons/menu_button.gd" id="4_1qoix"]
+
+[sub_resource type="Theme" id="Theme_1qoix"]
+RichTextLabel/colors/font_outline_color = Color(0.2, 0.12941177, 0.14901961, 1)
+RichTextLabel/colors/font_shadow_color = Color(0.2, 0.13, 0.14866665, 1)
+RichTextLabel/constants/line_separation = 8
+RichTextLabel/constants/outline_size = 4
+RichTextLabel/constants/shadow_outline_size = 4
+RichTextLabel/font_sizes/bold_font_size = 10
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/bold_font = ExtResource("2_58x8j")
+RichTextLabel/fonts/normal_font = ExtResource("2_58x8j")
+
+[node name="LostGameOverlay" type="Control" unique_id=1533451319 node_paths=PackedStringArray("color_rect", "text_bounds", "rich_text_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_58x8j")
+color_rect = NodePath("ColorRect")
+text_bounds = NodePath("ColorRect/TextBounds")
+rich_text_label = NodePath("ColorRect/TextBounds/RichTextLabel")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=777685168]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.32941177, 0.47058824, 0.67058825, 1)
+
+[node name="TextBounds" type="VBoxContainer" parent="ColorRect" unique_id=116156872]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -76.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 24
+
+[node name="RichTextLabelTitle" type="RichTextLabel" parent="ColorRect/TextBounds" unique_id=2101181611]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_o0vpx")
+theme_override_constants/shadow_outline_size = 16
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1][b]YOU LOST[/b][/shake]
+"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/TextBounds" unique_id=1196179215]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme = SubResource("Theme_1qoix")
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1][b][color=f2f1a2]Peebos[/color] were EXTINCT...[/b][/shake]
+"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="MenuButton" type="Button" parent="ColorRect/TextBounds" unique_id=1093001602]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_o0vpx")
+text = "MENU"
+script = ExtResource("4_1qoix")

@@ -8,7 +8,7 @@ offset_right = 224.0
 offset_bottom = 104.0
 mouse_filter = 2
 script = ExtResource("2_21gtf")
-peebo_text_color = Color(0.95, 0.944775, 0.63649994, 1)
+peebo_text_color = Color(0.9490196, 0.94509804, 0.63529414, 1)
 mimo_text_color = Color(0.54901963, 0.34117648, 0.49019608, 1)
 wungus_text_color = Color(0.32941177, 0.47058824, 0.67058825, 1)
 

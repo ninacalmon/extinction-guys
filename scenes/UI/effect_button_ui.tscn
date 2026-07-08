@@ -32,5 +32,6 @@ material = SubResource("ShaderMaterial_0t3yi")
 instance_shader_parameters/enabled = false
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+toggle_mode = true
 texture_normal = ExtResource("4_p2e2r")
 stretch_mode = 5
