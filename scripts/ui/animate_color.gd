@@ -2,7 +2,7 @@ extends ColorRect
 
 @export var colors_to_change: Array[Color]
 
-@export var transition_time: float = 5.0
+@export var transition_time: float = 3.0
 
 var current_index := 0
 var t := 0.0

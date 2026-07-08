@@ -17,7 +17,6 @@ var sex: SexType
 
 var child_count: int = 0
 
-
 var my_name: String
 
 var is_hovered: bool = false
@@ -54,7 +53,6 @@ func _on_turn():
 
 	for action in brain.think():
 		if actions.execute(action, self):
-			print(Bank.action_values.get(action))
 			Bank.deposit(Bank.action_values.get(action))
 			return
 

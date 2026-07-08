@@ -266,13 +266,13 @@ script = ExtResource("3_4i7lc")
 creature = NodePath("..")
 metadata/_custom_type_script = "uid://dkh5dsdy6evtu"
 
-[node name="PeeboVisuals" type="Node" parent="." unique_id=1024419272 node_paths=PackedStringArray("blood_gpu_particles", "creature", "sprite", "reaction_sprite", "animation_player")]
+[node name="PeeboVisuals" type="Node" parent="." unique_id=1024419272 node_paths=PackedStringArray("creature", "sprite", "reaction_sprite", "animation_player", "blood_gpu_particles")]
 script = ExtResource("5_v4adu")
-blood_gpu_particles = NodePath("../BloodGPUParticles")
 creature = NodePath("..")
 sprite = NodePath("../AnimatedSprite2D")
 reaction_sprite = NodePath("../ReactionSprite")
 animation_player = NodePath("../AnimationPlayer")
+blood_gpu_particles = NodePath("../BloodGPUParticles")
 metadata/_custom_type_script = "uid://dbetoo8hrv0mk"
 
 [node name="PeeboActions" type="Node" parent="." unique_id=1034052593]

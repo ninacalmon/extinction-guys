@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b05pqxv72estx"]
 
-[ext_resource type="Script" uid="uid://cfj8yd6aw4vbh" path="res://scripts/ui/time_buttons.gd" id="1_ov0b7"]
+[ext_resource type="Script" uid="uid://cfj8yd6aw4vbh" path="res://scripts/ui/buttons/time_buttons.gd" id="1_ov0b7"]
 [ext_resource type="Texture2D" uid="uid://cofldksa6yair" path="res://sprites/ui/time_buttons.png" id="2_5co1l"]
 [ext_resource type="Shader" uid="uid://djxddseiw1s4k" path="res://resources/outline_shadow.gdshader" id="2_k768l"]
 [ext_resource type="Texture2D" uid="uid://di888m78f8uhv" path="res://sprites/ui/time_buttons_pressed.png" id="4_k768l"]

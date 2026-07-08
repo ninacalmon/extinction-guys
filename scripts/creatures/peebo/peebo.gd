@@ -23,11 +23,13 @@ func drink(pos: Vector2i):
 	visuals.drink_anim(pos)
 	thirst = floor(thirst * 0.3)
 
+
 func prey(pos: Vector2i):
 	visuals.prey(pos)
 	child_count = 0
 	hunger = 0
 	thirst = 0
+
 
 func move_to(next: Vector2i):
 	var old_pos = tile_pos

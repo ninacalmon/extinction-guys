@@ -64,6 +64,9 @@ func _ready() -> void:
 	generate_fence()
 
 func generate_world() -> void:
+	Globals.world.clear()
+	Globals.entities.clear()
+
 	var play_left = -width / 2
 	var play_right = width / 2 - 1
 	var play_top = -height / 2

@@ -5,7 +5,8 @@ var amount_to_spawn: int
 func _init():
 	title = "A Bag of Mimo"
 	image = preload("res://sprites/ui/mimo_bag.png")
-	price = BASE_PRICE * 10
+	base_price_multiply = 10.0
+	price = int(BASE_PRICE * base_price_multiply)
 
 func execute_effect():
 	amount_to_spawn = randi_range(10, 20)

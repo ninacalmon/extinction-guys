@@ -15,7 +15,6 @@ func _ready() -> void:
 	TimeManager.turn_passed.connect(_on_turn)
 
 
-
 func _on_turn():
 	if hatching:
 		return

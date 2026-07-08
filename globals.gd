@@ -5,9 +5,10 @@ var map: MapGen
 var world_width: int = 32
 var world_height: int = 32
 
-
 var world: Dictionary = {}
 var entities: Dictionary = {}
+
+var is_game_start: bool = true
 
 var creature_instanciator: CreatureInstanciator
 
@@ -84,6 +85,7 @@ func is_in_bounds(pos: Vector2i) -> bool:
 		and pos.y >= -half_height
 		and pos.y < half_height
 	)
+
 
 #region Colors
 @export_color_no_alpha var peebo_text_color: Color = Color(0.949, 0.945, 0.635)

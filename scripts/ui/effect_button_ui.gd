@@ -9,21 +9,30 @@ class_name EffectButton
 
 var effect: BaseEffect
 
+
 func _ready() -> void:
+	effect = EffectsManager.effect_map.get(my_effect)
+
+	if !effect:
+		return
+
 	setup()
 
+	effect.price_changed.connect(update_price)
 	texture_button.pressed.connect(_on_button_pressed)
 	texture_button.mouse_exited.connect(func(): texture_button.button_pressed = false)
 
 
 func setup():
-	effect = EffectsManager.effect_map.get(my_effect)
-
 	title.text = "[b][wave amp=12 freq=4]%s[/wave][/b]" %effect.title
 
 	texture_button.texture_normal = effect.image
 
-	price.text = "[img align=bottom]res://sprites/ui/lf_icon.png[/img] [b]%d Lƒ" %effect.price
+
+
+func update_price(new_price: int):
+	price.text = "[img align=bottom]res://sprites/ui/lf_icon.png[/img] [b]%d Lƒ" %new_price
+
 
 func _on_button_pressed():
 	if !effect:
@@ -32,7 +41,6 @@ func _on_button_pressed():
 	if Bank.buy(effect.price):
 		effect.execute_effect()
 		effect.update_price()
-		setup()
 
 	else:
 		shake()

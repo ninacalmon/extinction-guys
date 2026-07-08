@@ -15,7 +15,7 @@ var current_turn_speed: float
 
 enum TurnSpeeds {DEFAULT, SLOW, FAST, SUPER_FAST, PAUSED}
 
-func _ready() -> void:
+func start() -> void:
 	original_turn_wait_time = turn_timer.wait_time
 	current_turn_speed = turn_timer.wait_time
 

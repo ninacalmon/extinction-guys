@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dgl4liki044va" path="res://sprites/peebo.png" id="3_svcqa"]
 [ext_resource type="Script" uid="uid://d23o8q7eoodr5" path="res://scripts/ui/buttons/start_button.gd" id="4_iysyy"]
 [ext_resource type="Script" uid="uid://b2baniksesqaa" path="res://scripts/ui/buttons/exit_button.gd" id="5_ny0ke"]
+[ext_resource type="Script" uid="uid://b8kup8ntmqc81" path="res://scripts/ui/buttons/info_button.gd" id="6_svcqa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ofy2k"]
 shader = ExtResource("2_78n2u")
@@ -54,7 +55,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 2.0
+"speed": 2.1
 }, {
 "frames": [{
 "duration": 1.0,
@@ -73,6 +74,103 @@ animations = [{
 "name": &"walk",
 "speed": 8.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_svcqa"]
+shader = ExtResource("2_78n2u")
+shader_parameter/rounded = false
+shader_parameter/alpha_threshold = 0.2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ofy2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr2y1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4adu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6lr1")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuvig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd4ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv8n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyjpl")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ypw4e"]
+shader = ExtResource("2_78n2u")
+shader_parameter/rounded = false
+shader_parameter/alpha_threshold = 0.2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aklih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr2y1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4adu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6lr1")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 1.8
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuvig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd4ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv8n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyjpl")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svcqa"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.12941177, 0.14901961, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+shadow_color = Color(0.2, 0.12941177, 0.14901961, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
 
 [node name="Menu" type="Control" unique_id=462403710]
 layout_mode = 3
@@ -112,6 +210,7 @@ position = Vector2(38, 40)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_ypw4e")
 animation = &"idle"
+autoplay = "idle"
 frame_progress = 0.37703067
 offset = Vector2(0, -7)
 flip_h = true
@@ -121,14 +220,13 @@ custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/PeeboHBoxContainer/PeeboControl2" unique_id=873843535]
-material = SubResource("ShaderMaterial_ofy2k")
+material = SubResource("ShaderMaterial_svcqa")
 instance_shader_parameters/enabled = false
 position = Vector2(38, 40)
 scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_ypw4e")
+sprite_frames = SubResource("SpriteFrames_ofy2k")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.00741046
 offset = Vector2(0, -7)
 
 [node name="PeeboControl3" type="Control" parent="CanvasLayer/PeeboHBoxContainer" unique_id=404564678]
@@ -136,14 +234,13 @@ custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/PeeboHBoxContainer/PeeboControl3" unique_id=1375445531]
-material = SubResource("ShaderMaterial_ofy2k")
+material = SubResource("ShaderMaterial_ypw4e")
 instance_shader_parameters/enabled = false
 position = Vector2(24, 40)
 scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_ypw4e")
+sprite_frames = SubResource("SpriteFrames_aklih")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.00741046
 offset = Vector2(0, -7)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1913611938]
@@ -165,6 +262,49 @@ size_flags_vertical = 4
 theme = ExtResource("2_2tfbb")
 text = "START"
 script = ExtResource("4_iysyy")
+
+[node name="InfoButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=80830649]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_2tfbb")
+toggle_mode = true
+text = "INFO"
+script = ExtResource("6_svcqa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/InfoButton" unique_id=321568661]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 215.0
+offset_top = -296.0
+offset_right = 535.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_2tfbb")
+theme_override_constants/line_separation = 10
+theme_override_font_sizes/normal_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_svcqa")
+bbcode_enabled = true
+text = "[shake rate=2.0 level=5 connected=1][color=f28a8a]this \"game\" is actually just a prototype.[/color][/shake]
+
+your job is to manage a tiny ecosystem, making sure that none of the species goes extinct.
+
+every action the creatures take earns you [color=91f279][wave amp=24 freq=8]MONEY™[/wave][/color], which you can then spend to... make even more money!
+
+the idea is that one day this might become a proper idle/clicker game.
+
+for now, it's just an idea of an idea of a game.
+
+bye :)
+"
+fit_content = true
+autowrap_mode = 2
+horizontal_alignment = 1
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=769103177]
 layout_mode = 2

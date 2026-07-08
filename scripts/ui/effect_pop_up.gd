@@ -10,8 +10,6 @@ var _tween: Tween
 
 
 func show_pop_up(entity: String, amount: int):
-	print("i want to sho up")
-
 	setup_text(entity, amount)
 
 	global_position = choose_random_spot()

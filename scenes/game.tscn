@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://brai7b5a4tcy8"]
 
+[ext_resource type="Script" uid="uid://bmwbrk030slpa" path="res://scripts/game.gd" id="1_bt5mj"]
 [ext_resource type="Script" uid="uid://kyslgdeclq0i" path="res://scripts/map/map_gen.gd" id="1_dinhu"]
 [ext_resource type="Texture2D" uid="uid://bvwjpifdk74fv" path="res://resources/new_noise_texture_2d.tres" id="2_kvuet"]
 [ext_resource type="PackedScene" uid="uid://cid6tt230d2uk" path="res://scenes/fruit_bush.tscn" id="3_trtic"]
@@ -99,6 +100,7 @@ color_ramp = SubResource("GradientTexture1D_5604n")
 
 [node name="Game" type="Node2D" unique_id=1262778181]
 y_sort_enabled = true
+script = ExtResource("1_bt5mj")
 
 [node name="MapGen" type="Node2D" parent="." unique_id=5671555]
 y_sort_enabled = true

@@ -74,6 +74,7 @@ func spawn_creature():
 
 	add_child(new_creature)
 
+
 func create_new_creature(pos: Vector2i):
 	var new_creature: Creature = current_creature.instantiate()
 
@@ -83,6 +84,7 @@ func create_new_creature(pos: Vector2i):
 	Globals.add_entity(pos, new_creature)
 
 	add_child(new_creature)
+
 
 func create_new_egg(pos: Vector2i):
 	var new_egg: PeeboEgg = egg_scene.instantiate()
