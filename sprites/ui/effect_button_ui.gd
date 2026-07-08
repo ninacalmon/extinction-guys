@@ -5,6 +5,7 @@ class_name EffectButton
 
 @onready var title: RichTextLabel = $Title
 @onready var texture_button: TextureButton = $TextureButton
+@onready var price: RichTextLabel = $TextureButton/Price
 
 var effect: BaseEffect
 
@@ -22,12 +23,16 @@ func setup():
 
 	texture_button.texture_normal = effect.image
 
+	price.text = "[img align=bottom]res://sprites/ui/lf_icon.png[/img] [b]%d Lƒ" %effect.price
+
 func _on_button_pressed():
 	if !effect:
 		return
 
-	print("clicked")
-	effect.execute_effect()
+	if Bank.buy(effect.price):
+		effect.execute_effect()
+		effect.update_price()
+		setup()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

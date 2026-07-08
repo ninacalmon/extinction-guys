@@ -54,6 +54,8 @@ func _on_turn():
 
 	for action in brain.think():
 		if actions.execute(action, self):
+			print(Bank.action_values.get(action))
+			Bank.deposit(Bank.action_values.get(action))
 			return
 
 

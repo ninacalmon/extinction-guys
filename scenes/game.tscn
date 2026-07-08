@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://dlkq6aamw1dlb" path="res://scripts/ui/pop_up_manager.gd" id="19_1kice"]
 [ext_resource type="PackedScene" uid="uid://bjvx3bmfrb7kb" path="res://scenes/UI/effect_pop_up.tscn" id="19_264po"]
 [ext_resource type="PackedScene" uid="uid://degmr42qsdj8b" path="res://scenes/UI/lost_game_overlay.tscn" id="20_1kice"]
+[ext_resource type="PackedScene" uid="uid://dl2hr1cvk7iiu" path="res://scenes/UI/bank_display.tscn" id="21_37s47"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yn7vm"]
 noise_type = 3
@@ -114,9 +115,8 @@ tile_set = SubResource("TileSet_cdpwx")
 [node name="CreatureInstanciator" type="Node2D" parent="." unique_id=28809032]
 y_sort_enabled = true
 script = ExtResource("5_ca42v")
-peebo_start_amount = 100
-mimo_start_amount = 150
-wungus_start_amount = 50
+peebo_start_amount = 1
+mimo_start_amount = 0
 peebo_scene = ExtResource("6_rysoc")
 mimo_scene = ExtResource("7_ssvqc")
 wungus_scene = ExtResource("8_264po")
@@ -157,36 +157,35 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="CreatureCount" parent="CanvasLayer/Control" unique_id=123356830 instance=ExtResource("13_kvuet")]
-layout_mode = 1
-offset_bottom = 92.0
+[node name="LeftVBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=808990181]
+layout_mode = 0
+offset_right = 231.0
+offset_bottom = 252.0
+theme_override_constants/separation = 40
 
-[node name="DayCount" parent="CanvasLayer/Control" unique_id=2083667652 instance=ExtResource("14_trtic")]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -83.0
-offset_right = 0.0
-grow_horizontal = 0
+[node name="CreatureCount" parent="CanvasLayer/Control/LeftVBoxContainer" unique_id=123356830 instance=ExtResource("13_kvuet")]
+layout_mode = 2
+
+[node name="TimeVBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/LeftVBoxContainer" unique_id=1395736273]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="DayCount" parent="CanvasLayer/Control/LeftVBoxContainer/TimeVBoxContainer" unique_id=2083667652 instance=ExtResource("14_trtic")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TimeButtons" parent="CanvasLayer/Control/LeftVBoxContainer/TimeVBoxContainer" unique_id=1735750415 instance=ExtResource("18_ssvqc")]
+layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="EffectsButtons" parent="CanvasLayer/Control" unique_id=1053261924 instance=ExtResource("15_ir15t")]
 layout_mode = 1
 anchors_preset = 7
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = -8.0
 grow_vertical = 0
-
-[node name="TimeButtons" parent="CanvasLayer/Control" unique_id=1735750415 instance=ExtResource("18_ssvqc")]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -103.0
-offset_top = 75.0
-offset_right = 57.0
-offset_bottom = 91.0
-grow_horizontal = 0
 
 [node name="EffectPopUpManager" type="Control" parent="CanvasLayer/Control" unique_id=246161429]
 anchors_preset = 0
@@ -195,7 +194,20 @@ offset_bottom = 40.0
 script = ExtResource("19_1kice")
 popup_scene = ExtResource("19_264po")
 
+[node name="RightVBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=37411618]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -237.0
+offset_bottom = 233.0
+grow_horizontal = 0
+
+[node name="BankDisplay" parent="CanvasLayer/Control/RightVBoxContainer" unique_id=1172933602 instance=ExtResource("21_37s47")]
+layout_mode = 2
+
 [node name="LostGameOverlay" parent="CanvasLayer" unique_id=1533451319 instance=ExtResource("20_1kice")]
+visible = false
 anchors_preset = 14
 anchor_top = 0.5
 anchor_bottom = 0.5

@@ -10,6 +10,7 @@ extends Control
 func _ready() -> void:
 	EventBus.lost_game.connect(_on_lost_game)
 
+	hide()
 	color_rect.hide()
 	text_bounds.hide()
 
@@ -19,6 +20,8 @@ func _ready() -> void:
 
 
 func _on_lost_game(creature: String):
+	show()
+
 	TimeManager.alter_time(TimeManager.TurnSpeeds.PAUSED)
 
 	setup_text(creature)

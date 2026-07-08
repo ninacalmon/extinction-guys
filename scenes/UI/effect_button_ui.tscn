@@ -35,3 +35,16 @@ layout_mode = 2
 toggle_mode = true
 texture_normal = ExtResource("4_p2e2r")
 stretch_mode = 5
+
+[node name="Price" type="RichTextLabel" parent="TextureButton" unique_id=97519486]
+custom_minimum_size = Vector2(0, 12)
+clip_contents = false
+layout_mode = 0
+offset_top = 54.0
+offset_right = 160.0
+offset_bottom = 66.0
+theme = ExtResource("1_8vy0c")
+bbcode_enabled = true
+text = "[b]100"
+scroll_active = false
+horizontal_alignment = 1
